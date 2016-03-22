@@ -91,7 +91,11 @@ function populateStores() {
 populateStores();
 
 //now that content is stored in arrays, make further poor choices in life
-var ballardPageList = document.getElementById('ballardstore');
+//make this a loop at some point so it is DRY but today I just want it to function
+//heh, get it, function. HEH~
+
+//adds ballard data to DOM
+document.getElementById('ballardstore');
 var addballard;
 var pizzasMade = ballard.pizzasMade;
 var pizzasDelivered = ballard.pizzasDelivered;
@@ -100,4 +104,38 @@ for (i = 0; i < 18; i++) {
   var addballard = document.createElement('li');
   addballard.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
   ballardstore.appendChild(addballard);
+}
+//adds first hill data to DOM
+document.getElementById('firsthillstore');
+var addfirstHill;
+var pizzasMade = firstHill.pizzasMade;
+var pizzasDelivered = firstHill.pizzasDelivered;
+var driversHired = firstHill.driversHired;
+for (i = 0; i < 18; i++) {
+  var addfirstHill = document.createElement('li');
+  addfirstHill.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  firsthillstore.appendChild(addfirstHill);
+}
+//adds international district data to DOM
+document.getElementById('internationalstore');
+var addInternational;
+var pizzasMade = international.pizzasMade;
+var pizzasDelivered = international.pizzasDelivered;
+var driversHired = international.driversHired;
+for (i = 0; i < 18; i++) {
+  var addInternational = document.createElement('li');
+  addInternational.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  internationalstore.appendChild(addInternational);
+}
+
+// add SLU data to DOM
+document.getElementById('slustore');
+var addSlu;
+var pizzasMade = slu.pizzasMade;
+var pizzasDelivered = slu.pizzasDelivered;
+var driversHired = slu.driversHired;
+for (i = 0; i < 18; i++) {
+  var addSlu = document.createElement('li');
+  addInternational.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  internationalstore.appendChild(addInternational);
 }
