@@ -43,11 +43,10 @@ function getRandomIntInclusive(min, max) {
 //sum of array values - yay for reusing old lab code
 var sumArray = function(inputSumArray) {
   var outputSumArray = 0;
-  console.table(inputSumArray);
   for (var i = 0; i < inputSumArray.length; i++) {
     outputSumArray += inputSumArray[i];
   }
-  console.log(inputSumArray + ' was passed in as an array of numbers and ' + outputSumArray + ' is their sum.');
+  return outputSumArray;
 };
 
 //calculate pizzas sold per hour - use random function and really big and ugly global arrays above
@@ -184,4 +183,12 @@ if (RavennaUL) {
   }
 }
 
-// get totals for homepage
+// get totals for homepage, push to homepage
+var totalPizzasArray = ballard.pizzasMade.concat(firstHill.pizzasMade, international.pizzasMade, slu.pizzasMade, georgetown.pizzasMade, ravenna.pizzasMade);
+var pizzaSum = sumArray(totalPizzasArray);
+console.log('pizza sum: ' + pizzaSum);
+var pizzaOdyssey = document.getElementById('feature');
+if (pizzaOdyssey) {
+  feature.textContent = pizzaSum + ' happy pizza odysseys this week!';
+  pizzaOdyssey.appendChild(feature);
+}
