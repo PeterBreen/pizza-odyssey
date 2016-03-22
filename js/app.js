@@ -136,6 +136,30 @@ var pizzasDelivered = slu.pizzasDelivered;
 var driversHired = slu.driversHired;
 for (i = 0; i < 18; i++) {
   var addSlu = document.createElement('li');
-  addInternational.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-  internationalstore.appendChild(addInternational);
+  addSlu.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  slustore.appendChild(addSlu);
+}
+
+//add Georgetown data to DOM
+document.getElementById('georgetownstore');
+var addGeorgetown;
+var pizzasMade = georgetown.pizzasMade;
+var pizzasDelivered = georgetown.pizzasDelivered;
+var driversHired = georgetown.driversHired;
+for (i = 0; i < 18; i++) {
+  var addGeorgetown = document.createElement('li');
+  addGeorgetown.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  georgetownstore.appendChild(addGeorgetown);
+}
+
+//add Ravenna data to DOM
+document.getElementById('ravennastore');
+var addRavenna;
+var pizzasMade = ravenna.pizzasMade;
+var pizzasDelivered = ravenna.pizzasDelivered;
+var driversHired = ravenna.driversHired;
+for (i = 0; i < 18; i++) {
+  var addRavenna = document.createElement('li');
+  addRavenna.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  ravennastore.appendChild(addRavenna);
 }
