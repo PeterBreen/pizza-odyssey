@@ -75,9 +75,15 @@ function calculateDeliveryDrivers(storeName) {
       driversPerHour.push('driver not reccomended');
     } else {
       //return "drivers reccomended: x" where x is deliveries/3 rounded UP to this.driversHired
-      numDrivers = Math.ceil(deliveriesMadeHour / 3);
+      numDrivers = Math.ceil(deliveriesMadeHour[i] / 3);
       driversPerHour.push('drivers reccomended: ' + numDrivers);
     }
     storeName.driversHired = driversPerHour;
   }
+}
+
+function populateStoreObject(storeName) {
+  calculatePizzasSold(storeName);
+  calculatePizzasDelivered(storeName);
+  calculateDeliveryDrivers(storeName);
 }
