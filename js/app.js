@@ -1,5 +1,6 @@
 //declare empty global variables here
 var pizzasMade; // for total pizzas per day across all stores
+var storeNameArray = ['ballardstore', 'firstHillstore', 'internationalstore', 'ravennastore', 'slustore', 'georgetownstore']; // list of store ID values, may or may not be useful
 
 // big ugly gross global arrays
 var hoursOperation = ['8:00am','9:00am','10:00am','11:00am','12 noon','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm','10:00pm','11:00pm','12 midnight','1:00am'];
@@ -32,8 +33,6 @@ georgetown = {
 ravenna = {
   timeOfDay: hoursOperation
 };
-//declare this array once store objects are created
-var storeNameArray = ['ballard', 'firstHill', 'international', 'ravenna', 'slu', 'georgetown'];
 
 //functionssssssssssssssssssssssssssss more like FUNctions am I right, no, no I am not right. UNFUNCtions.
 
@@ -61,11 +60,11 @@ function calculatePizzasDelivered(storeName) {
     deliveriesCalc = getRandomIntInclusive(minDeliveriesHour[i], maxDeliveriesHour[i]);
     deliveriesMadeHour.push(deliveriesCalc);
     if (deliveriesCalc === 0) {
-      driversPerHour.push('driver not reccomended');
+      driversPerHour.push('[ driver not reccomended ]');
     } else {
       //return "drivers reccomended: x" where x is deliveries/3 rounded UP to this.driversHired
       numDrivers = Math.ceil(deliveriesMadeHour[i] / 3);
-      driversPerHour.push('drivers reccomended: ' + numDrivers);
+      driversPerHour.push('[ drivers reccomended: ' + numDrivers + ' ]');
     }
     storeName.driversHired = driversPerHour;
     storeName.pizzasDelivered = deliveriesMadeHour;
@@ -90,3 +89,15 @@ function populateStores() {
 
 //run populateStores so I can fix content to HTML via DOM
 populateStores();
+
+//now that content is stored in arrays, make further poor choices in life
+var ballardPageList = document.getElementById('ballardstore');
+var addballard;
+var pizzasMade = ballard.pizzasMade;
+var pizzasDelivered = ballard.pizzasDelivered;
+var driversHired = ballard.driversHired;
+for (i = 0; i < 18; i++) {
+  var addballard = document.createElement('li');
+  addballard.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
+  ballardstore.appendChild(addballard);
+}
