@@ -1,6 +1,6 @@
 //declare empty global variables here
-var pizzasMade;
-var pizzasDelivered;
+var pizzasMade; // for total pizzas per day across all stores
+var pizzasDelivered; // ???
 var deliveriesMadeHour = [];
 var pizzasMadeHour = [];
 var driversPerHour = [];
@@ -17,16 +17,9 @@ console.log ('maxpizzashour length: ' + maxPizzasHourCeiling.length);
 console.log ('mindeliverieshour length: ' + minDeliveriesHour.length);
 console.log ('maxdeliverieshour length: ' + maxDeliveriesHour.length);
 
-//object constructor notation for pizza stores - does this need storeName?
-function pizzaStoreObject (pizzasMade,pizzasDelivered,driversHired) {
-  this.pizzasMade = pizzasMade; //from calculatePizzasSold()
-  this.pizzasDelivered = pizzasDelivered; //from calculatePizzasDelivered()
-  this.driversHired = driversHired; //divide pizzasDelivered by 3, subtract remainder, if:else for 0
-};
-
 // store name objects, these are the ul id="" fields
 ballard = {
-  timeOfDay: hoursOperation
+  timeOfDay: hoursOperation,
 };
 firstHill = {
   timeOfDay: hoursOperation
@@ -50,6 +43,12 @@ ravenna = {
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+function populateStoreObject(storeName) {
+  calculatePizzasSold(storeName);
+  calculatePizzasDelivered(storeName);
+  calculateDeliveryDrivers(storeName);
+}
 
 //calculate pizzas sold per hour - use random function and really big and ugly global arrays above
 function calculatePizzasSold(storeName) {
@@ -80,10 +79,4 @@ function calculateDeliveryDrivers(storeName) {
     }
     storeName.driversHired = driversPerHour;
   }
-}
-
-function populateStoreObject(storeName) {
-  calculatePizzasSold(storeName);
-  calculatePizzasDelivered(storeName);
-  calculateDeliveryDrivers(storeName);
 }
