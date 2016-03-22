@@ -7,7 +7,6 @@ var minPizzasHourFloor = [0,0,0,0,0,0,2,2,2,15,15,15,12,12,12,5,5,5];
 var maxPizzasHourCeiling = [4,4,4,7,7,7,15,15,15,35,35,35,31,31,31,20,20,20];
 var minDeliveriesHour = [0,0,0,0,0,0,1,1,1,3,3,3,5,5,5,6,6,6];
 var maxDeliveriesHour = [4,4,4,4,4,4,4,4,4,8,8,8,12,12,12,11,11,11];
-var storeNameArray = [ballard, firstHill, international, ravenna, slu, georgetown];
 //make sure these all read the same number - should be 18
 console.log ('minpizzashour length: ' + minPizzasHourFloor.length);
 console.log ('maxpizzashour length: ' + maxPizzasHourCeiling.length);
@@ -33,6 +32,8 @@ georgetown = {
 ravenna = {
   timeOfDay: hoursOperation
 };
+//declare this array once store objects are created
+var storeNameArray = [ballard, firstHill, international, ravenna, slu, georgetown];
 
 //functionssssssssssssssssssssssssssss more like FUNctions am I right, no, no I am not right. UNFUNCtions.
 
@@ -41,6 +42,7 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+//populates an individual store's array
 function populateStoreObject(storeName) {
   calculatePizzasSold(storeName);
   calculatePizzasDelivered(storeName);
