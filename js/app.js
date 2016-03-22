@@ -33,7 +33,7 @@ ravenna = {
   timeOfDay: hoursOperation
 };
 //declare this array once store objects are created
-var storeNameArray = [ballard, firstHill, international, ravenna, slu, georgetown];
+var storeNameArray = ['ballard', 'firstHill', 'international', 'ravenna', 'slu', 'georgetown'];
 
 //functionssssssssssssssssssssssssssss more like FUNctions am I right, no, no I am not right. UNFUNCtions.
 
@@ -41,12 +41,6 @@ var storeNameArray = [ballard, firstHill, international, ravenna, slu, georgetow
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-
-//populates an individual store's array
-function populateStoreObject(storeName) {
-  calculatePizzasSold(storeName);
-  calculatePizzasDelivered(storeName);
-}
 
 //calculate pizzas sold per hour - use random function and really big and ugly global arrays above
 function calculatePizzasSold(storeName) {
@@ -77,3 +71,22 @@ function calculatePizzasDelivered(storeName) {
     storeName.pizzasDelivered = deliveriesMadeHour;
   }
 }
+
+//run populateStoreObject on every store
+//populates an individual store's array
+function populateStoreObject(storeName) {
+  calculatePizzasSold(storeName);
+  calculatePizzasDelivered(storeName);
+}
+//run on every store - make this a loop later
+function populateStores() {
+  populateStoreObject(ballard);
+  populateStoreObject(firstHill);
+  populateStoreObject(georgetown);
+  populateStoreObject(international);
+  populateStoreObject(ravenna);
+  populateStoreObject(slu);
+}
+
+//run populateStores so I can fix content to HTML via DOM
+populateStores();
