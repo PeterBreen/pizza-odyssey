@@ -6,13 +6,27 @@ HTML, JS, and CSS for a pizza website from Codefellows Code 201, seattle-201d3
 #changelog
 
 ## Wednesday, March 23
-  - refactored sales-data page to be SUPER DRY, much like Asahi Super Dry beer  
-    - DRYness not guaranteed
-  - uses object constructors instead of object literal  
-  - sales-data page now outputs in table form instead of list  
-  - data generated for sales-data page is unique for every store  
+css/style.css  
   - table style added to site CSS  
-  - number of happy pizza odysseys functionality works with new object constructor js  
+
+js/app.js  
+  - refactored sales-data javascript to be SUPER DRY, much like Asahi Super Dry beer  
+    - DRYness not guaranteed
+  - uses object constructors instead of object literal
+  - data generated for sales-data page is unique for every store  
+  - number of happy pizza odysseys functionality works with new object constructor js
+
+sales-data.html  
+  - sales-data page now outputs in table form instead of list  
+
+index.html
+  - made Benton laugh and/or sigh in despair with that pun tagline for the pizza store
+  
+
+
+
+
+
 
 
 
