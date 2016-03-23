@@ -1,0 +1,41 @@
+html, body {
+font-family: 'Questrial', sans-serif;
+background-color: #4F5152;
+font-size: 16px;
+}
+body {
+max-width: 700px;
+margin: 0 auto;
+padding: 1.5em 3em;
+margin-left: 1px solid #dddddd;
+margin-right: 1px solid #dddddd;
+background-color: #BAB8B5;
+}
+#featurenumber {
+  color: #ea6249;
+  background-color: #4f5152;
+  padding: 1em 2em;
+  max-width: 100%;
+  font-size: 1.25em;
+  border-radius: 50px;
+}
+h1 {
+  color: #fcca51;
+font-size: 2.5em;
+background-color: #4f5152;
+padding: 0.5em 1em;
+border-radius: 50px;
+}
+h2 {
+  color: #466cc2;
+  font-size: 1.75em;
+  font-style: italic;
+}
+li {
+font-size: 1.2em;
+line-height: 1.5;
+}
+.internal-sale-heading {
+font-size: 1.6em;
+}
+/* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
