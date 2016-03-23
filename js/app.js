@@ -207,24 +207,26 @@ var georgetownTotalSaleCount = generateTotalSales(georgetown.hourlyData, georget
 var ravennaTotalSaleCount = generateTotalSales(ravenna.hourlyData, ravenna);
 
 //OUTPUT TO TABLE
-var ballardOutput = generateTableData(ballard.hourlyData, ballard);
-document.getElementById('ballard').appendChild(ballardOutput);
+var salesDataCheck = document.getElementById('sales-data-body');
+if (salesDataCheck) {
+  var ballardOutput = generateTableData(ballard.hourlyData, ballard);
+  document.getElementById('ballard').appendChild(ballardOutput);
 
-var firsthillOutput = generateTableData(firsthill.hourlyData, firsthill);
-document.getElementById('ballard').appendChild(firsthillOutput);
+  var firsthillOutput = generateTableData(firsthill.hourlyData, firsthill);
+  document.getElementById('ballard').appendChild(firsthillOutput);
 
-var internationalOutput = generateTableData(international.hourlyData, international);
-document.getElementById('international').appendChild(internationalOutput);
+  var internationalOutput = generateTableData(international.hourlyData, international);
+  document.getElementById('international').appendChild(internationalOutput);
 
-var sluOutput = generateTableData(slu.hourlyData, slu);
-document.getElementById('slu').appendChild(sluOutput);
+  var sluOutput = generateTableData(slu.hourlyData, slu);
+  document.getElementById('slu').appendChild(sluOutput);
 
-var georgetownOutput = generateTableData(georgetown.hourlyData, georgetown);
-document.getElementById('georgetown').appendChild(georgetownOutput);
+  var georgetownOutput = generateTableData(georgetown.hourlyData, georgetown);
+  document.getElementById('georgetown').appendChild(georgetownOutput);
 
-var ravennaOutput = generateTableData(ravenna.hourlyData, ravenna);
-document.getElementById('ravenna').appendChild(ravennaOutput);
-
+  var ravennaOutput = generateTableData(ravenna.hourlyData, ravenna);
+  document.getElementById('ravenna').appendChild(ravennaOutput);
+};
 //create total pizzas sold, push to homepage via DOM
 
 var totalPizzasMade = ballardTotalSaleCount + firsthillTotalSaleCount + internationalTotalSaleCount + sluTotalSaleCount + georgetownTotalSaleCount + ravennaTotalSaleCount;
