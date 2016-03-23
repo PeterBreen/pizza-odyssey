@@ -38,4 +38,13 @@ line-height: 1.5;
 .internal-sale-heading {
 font-size: 1.6em;
 }
+table {
+  max-width: 680px;
+  margin-left: 20px;
+  border-collapse: collapse;
+}
+td, th {
+  border: 1px solid #4F5152;
+  padding: 5px 10px;
+}
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
