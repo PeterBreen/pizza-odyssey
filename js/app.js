@@ -146,25 +146,25 @@ slu.pushHourlyData(new HourlyData('11:00 pm', 5, 21, 16, 31));
 slu.pushHourlyData(new HourlyData('12 midnight', 5, 21, 16, 31));
 slu.pushHourlyData(new HourlyData('1:00 am', 5, 21, 16, 31));
 
-var georgetown = new StoreLocation('georgetown');
-georgetown.pushHourlyData(new HourlyData('8:00 am', 2, 7, 3, 5));
-georgetown.pushHourlyData(new HourlyData('9:00 am', 2, 7, 3, 5));
-georgetown.pushHourlyData(new HourlyData('10:00 am', 2, 7, 3, 5));
-georgetown.pushHourlyData(new HourlyData('11:00 am', 3, 8, 3, 9));
-georgetown.pushHourlyData(new HourlyData('12:00 noon', 3, 8, 3, 9));
-georgetown.pushHourlyData(new HourlyData('1:00 pm', 3, 8, 3, 9));
-georgetown.pushHourlyData(new HourlyData('2:00 pm', 1, 5, 1, 4));
-georgetown.pushHourlyData(new HourlyData('3:00 pm', 1, 5, 1, 4));
-georgetown.pushHourlyData(new HourlyData('4:00 pm', 1, 5, 1, 4));
-georgetown.pushHourlyData(new HourlyData('5:00 pm', 5, 13, 2, 4));
-georgetown.pushHourlyData(new HourlyData('6:00 pm', 5, 13, 2, 4));
-georgetown.pushHourlyData(new HourlyData('7:00 pm', 5, 13, 2, 4));
-georgetown.pushHourlyData(new HourlyData('8:00 pm', 22, 41, 15, 42));
-georgetown.pushHourlyData(new HourlyData('9:00 pm', 22, 41, 15, 42));
-georgetown.pushHourlyData(new HourlyData('10:00 pm', 22, 41, 15, 42));
-georgetown.pushHourlyData(new HourlyData('11:00 pm', 15, 20, 6, 21));
-georgetown.pushHourlyData(new HourlyData('12 midnight', 15, 20, 6, 21));
-georgetown.pushHourlyData(new HourlyData('1:00 am', 15, 20, 6, 21));
+var ravenna = new StoreLocation('ravenna');
+ravenna.pushHourlyData(new HourlyData('8:00 am', 2, 7, 3, 5));
+ravenna.pushHourlyData(new HourlyData('9:00 am', 2, 7, 3, 5));
+ravenna.pushHourlyData(new HourlyData('10:00 am', 2, 7, 3, 5));
+ravenna.pushHourlyData(new HourlyData('11:00 am', 3, 8, 3, 9));
+ravenna.pushHourlyData(new HourlyData('12:00 noon', 3, 8, 3, 9));
+ravenna.pushHourlyData(new HourlyData('1:00 pm', 3, 8, 3, 9));
+ravenna.pushHourlyData(new HourlyData('2:00 pm', 1, 5, 1, 4));
+ravenna.pushHourlyData(new HourlyData('3:00 pm', 1, 5, 1, 4));
+ravenna.pushHourlyData(new HourlyData('4:00 pm', 1, 5, 1, 4));
+ravenna.pushHourlyData(new HourlyData('5:00 pm', 5, 13, 2, 4));
+ravenna.pushHourlyData(new HourlyData('6:00 pm', 5, 13, 2, 4));
+ravenna.pushHourlyData(new HourlyData('7:00 pm', 5, 13, 2, 4));
+ravenna.pushHourlyData(new HourlyData('8:00 pm', 22, 41, 15, 42));
+ravenna.pushHourlyData(new HourlyData('9:00 pm', 22, 41, 15, 42));
+ravenna.pushHourlyData(new HourlyData('10:00 pm', 22, 41, 15, 42));
+ravenna.pushHourlyData(new HourlyData('11:00 pm', 15, 20, 6, 21));
+ravenna.pushHourlyData(new HourlyData('12 midnight', 15, 20, 6, 21));
+ravenna.pushHourlyData(new HourlyData('1:00 am', 15, 20, 6, 21));
 
 var ravenna = new StoreLocation('ravenna');
 ravenna.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
@@ -199,8 +199,11 @@ document.getElementById('international').appendChild(internationalOutput);
 var sluOutput = generateTableData(slu.hourlyData, slu);
 document.getElementById('slu').appendChild(sluOutput);
 
-var georgetownOutput = generateTableData(georgetown.hourlyData, georgetown);
-document.getElementById('georgetown').appendChild(georgetownOutput);
+var ravennaOutput = generateTableData(ravenna.hourlyData, ravenna);
+document.getElementById('ravenna').appendChild(ravennaOutput);
+
+var ravennaOutput = generateTableData(ravenna.hourlyData, ravenna);
+document.getElementById('ravenna').appendChild(ravennaOutput);
 
 //COMMENTED OUT ASCII ART
 //     _____ ______ _   _ _____    _    _ ______ _      _____
