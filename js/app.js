@@ -187,8 +187,7 @@ if (RavennaUL) {
 var totalPizzasArray = ballard.pizzasMade.concat(firstHill.pizzasMade, international.pizzasMade, slu.pizzasMade, georgetown.pizzasMade, ravenna.pizzasMade);
 var pizzaSum = sumArray(totalPizzasArray);
 console.log('pizza sum: ' + pizzaSum);
-var pizzaOdyssey = document.getElementById('feature');
+var pizzaOdyssey = document.getElementById('featurenumber');
 if (pizzaOdyssey) {
-  feature.textContent = pizzaSum + ' happy pizza odysseys this week!';
-  pizzaOdyssey.appendChild(feature);
+  featurenumber.textContent = pizzaSum + ' happy pizza odysseys this week!';
 }
