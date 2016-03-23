@@ -5,7 +5,17 @@ HTML, JS, and CSS for a pizza website from Codefellows Code 201, seattle-201d3
 
 #changelog
 
-## Tuesday, March 21
+## Wednesday, March 23
+refactored sales-data page to be SUPER DRY, much like Asahi Super Dry beer
+uses object constructors instead of object literal
+sales-data page now outputs in table form instead of list
+data generated for sales-data page is unique for every store
+table style added to site CSS
+
+
+
+
+## Tuesday, March 22
 add index.html (public-facing homepage)  
   -store locations  
   -store hours  
