@@ -1,7 +1,5 @@
 //GLOBAL VARIABLES
 var totalPizzasMade; // for total pizzas per day across all stores
-//make sure you remove this if you don't use it
-var hoursOperation = ['8:00am','9:00am','10:00am','11:00am','12 noon','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm','10:00pm','11:00pm','12 midnight','1:00am'];
 
 // CONSTRUCTOR FUNCTIONS
 function StoreLocation(name){
@@ -28,10 +26,14 @@ function sumArray(inputSumArray) {
 };
 
 function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
+  var driver;
   this.time = time;
   this.pizzasSold = getRandomIntInclusive(minPizzas, maxPizzas);
   this.deliveriesMade = getRandomIntInclusive(minDeliveries, maxDeliveries);
-  this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
+  driver = Math.ceil(this.deliveriesMade / 3);
+  if (driver === 0) { this.driversNeeded = 'no driver reccomended';
+  } else { this.driversNeeded = driver;
+  };
 };
 
 function generateTableData(inputPizzaObject, storeId) {
@@ -84,9 +86,55 @@ ballard.pushHourlyData(new HourlyData('11:00 pm', 8, 15, 6, 16));
 ballard.pushHourlyData(new HourlyData('12 midnight', 8, 15, 6, 16));
 ballard.pushHourlyData(new HourlyData('1:00 am', 8, 15, 6, 16));
 
+var firsthill = new StoreLocation('firsthill');
+firsthill.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
+firsthill.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
+firsthill.pushHourlyData(new HourlyData('10:00 am', 1, 3, 1, 7));
+firsthill.pushHourlyData(new HourlyData('11:00 am', 5, 9, 2, 8));
+firsthill.pushHourlyData(new HourlyData('12:00 noon', 5, 9, 2, 8));
+firsthill.pushHourlyData(new HourlyData('1:00 pm', 5, 9, 2, 8));
+firsthill.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 6));
+firsthill.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 6));
+firsthill.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 6));
+firsthill.pushHourlyData(new HourlyData('5:00 pm', 18, 32, 3, 9));
+firsthill.pushHourlyData(new HourlyData('6:00 pm', 18, 32, 3, 9));
+firsthill.pushHourlyData(new HourlyData('7:00 pm', 18, 32, 3, 9));
+firsthill.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
+firsthill.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
+firsthill.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
+firsthill.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
+firsthill.pushHourlyData(new HourlyData('12 midnight', 8, 20, 6, 16));
+firsthill.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
+
+var international = new StoreLocation('international');
+international.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+international.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+international.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+international.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+international.pushHourlyData(new HourlyData('12:00 noon', 0, 7, 0, 4));
+international.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+international.pushHourlyData(new HourlyData('2:00 pm', 2, 15, 1, 4));
+international.pushHourlyData(new HourlyData('3:00 pm', 2, 15, 1, 4));
+international.pushHourlyData(new HourlyData('4:00 pm', 2, 15, 1, 4));
+international.pushHourlyData(new HourlyData('5:00 pm', 10, 26, 4, 6));
+international.pushHourlyData(new HourlyData('6:00 pm', 10, 26, 4, 6));
+international.pushHourlyData(new HourlyData('7:00 pm', 10, 26, 4, 6));
+international.pushHourlyData(new HourlyData('8:00 pm', 8, 22, 7, 15));
+international.pushHourlyData(new HourlyData('9:00 pm', 8, 22, 7, 15));
+international.pushHourlyData(new HourlyData('10:00 pm', 8, 22, 7, 15));
+international.pushHourlyData(new HourlyData('11:00 pm', 0, 2, 2, 8));
+international.pushHourlyData(new HourlyData('12 midnight', 0, 2, 2, 8));
+international.pushHourlyData(new HourlyData('1:00 am', 0, 2, 2, 8));
+
 //OUTPUT TO TABLE
 var ballardOutput = generateTableData(ballard.hourlyData, ballard);
 document.getElementById('ballard').appendChild(ballardOutput);
+
+var firsthillOutput = generateTableData(firsthill.hourlyData, firsthill);
+document.getElementById('ballard').appendChild(firsthillOutput);
+
+var internationalOutput = generateTableData(international.hourlyData, international);
+document.getElementById('international').appendChild(internationalOutput);
 
 //COMMENTED OUT ASCII ART
 //     _____ ______ _   _ _____    _    _ ______ _      _____
