@@ -34,24 +34,28 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 };
 
-function generateTableHeaderRow(inputArray) {
-  var row = document.createElement('tr');
-  var col;
-  for (var i = 0; i < inputArray.length; i++) {
-    col = document.createElement('th');
-    col.textContent = inputArray[i];
-    row.appendChild(col);
-  }
-  return row;
-}
-
-function generateTableDataRow(inputArray) {
-  var row = document.createElement('tr');
-  var col;
-  for(var i = 0; i < inputArray.length; i++){
-    col = document.createElement('td');
-    col.textContent = inputArray[i];
-    row.appendChild(col);
+function generateTableDataRow(inputPizzaStore, storeId) {
+  var row;
+  var ducks = document.getElementById(storeId);
+  var col1;
+  var col2;
+  var col3;
+  var col4;
+  for(var i = 0; i < inputPizzaStore.length; i++){
+    var row = document.createElement('tr');
+    col1 = document.createElement('td');
+    col2 = document.createElement('td');
+    col3 = document.createElement('td');
+    col4 = document.createElement('td');
+    col1.textContent = storeId.hourlyData[i].time;
+    col2.textContent = storeId.hourlyData[i].pizzasSold;
+    col3.textContent = storeId.hourlyData[i].deliveriesMade;
+    col4.textContent = storeId.hourlyData[i].driversNeeded;
+    row.appendChild(col1);
+    row.appendChild(col2);
+    row.appendChild(col3);
+    row.appendChild(col4);
+    ducks.appendChild(row);
   }
   return row;
 };
@@ -60,7 +64,7 @@ function generateTableDataRow(inputArray) {
 
 //METHOD/FUNCTION CALLS
 var ballard = new StoreLocation('ballard');
-ballard.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+ballardstore.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('11:00 am', 0, 4, 0, 4));
@@ -80,13 +84,15 @@ ballard.pushHourlyData(new HourlyData('12 midnight', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('1:00 am', 0, 4, 0, 4));
 
 //OUTPUT TO TABLE
+var testOutput = generateTableDataRow(ballard.hourlyData, ballardstore);
+document.getElementById('ballardstore').appendChild(testOutput);
 
-var pizzaTable = document.createElement('table');
-for (i = 0; i < ballard.hourlyData.length; i++) {
-  var rowoutput = generateTableDataRow(ballard.hourlyData[i]);
-  pizzaTable.appendChild(rowoutput);
-}
-document.getElementById('ballardstore').appendChild(pizzaTable);
+// var pizzaTable = document.createElement('table');
+// for (i = 0; i < ballard.hourlyData.length; i++) {
+//   var rowoutput = generateTableDataRow(ballard.hourlyData[i]);
+//   pizzaTable.appendChild(rowoutput);
+// }
+// document.getElementById('ballardstore').appendChild(pizzaTable);
 
 // var firstRow = genorateHeadingRow(['name', 'age', 'language']);
 // var secondRow = genorateDataRow(['dunc', '88', 'javascript']);
