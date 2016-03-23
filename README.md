@@ -21,7 +21,7 @@ sales-data.html
 
 index.html
   - made Benton laugh and/or sigh in despair with that pun tagline for the pizza store
-  
+  - added feature image placeholder until the client gives me one
 
 
 
