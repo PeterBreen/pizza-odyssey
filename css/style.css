@@ -48,4 +48,8 @@ td, th {
   border: 1px solid #4F5152;
   padding: 6px 17px;
 }
+th {
+font-weight: bold;
+color: #466cc2;
+}
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
