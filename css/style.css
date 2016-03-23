@@ -38,4 +38,11 @@ line-height: 1.5;
 .internal-sale-heading {
 font-size: 1.6em;
 }
+hr {
+color: #ea6249;
+background-color: #ea6249;
+border: 0;
+height: 10px;
+width: 100%;
+}
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
