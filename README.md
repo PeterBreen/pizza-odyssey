@@ -24,12 +24,6 @@ index.html
   - added feature image placeholder until the client gives me one
 
 
-
-
-
-
-
-
 ## Tuesday, March 22
 add index.html (public-facing homepage)  
   - store locations  
