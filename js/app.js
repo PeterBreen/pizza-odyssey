@@ -34,7 +34,18 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 };
 
-function generateTableDataRow(inputArray){
+function generateTableHeaderRow(inputArray) {
+  var row = document.createElement('tr');
+  var col;
+  for (var i = 0; i < inputArray.length; i++) {
+    col = document.createElement('th');
+    col.textContent = inputArray[i];
+    row.appendChild(col);
+  }
+  return row;
+}
+
+function generateTableDataRow(inputArray) {
   var row = document.createElement('tr');
   var col;
   for(var i = 0; i < inputArray.length; i++){
