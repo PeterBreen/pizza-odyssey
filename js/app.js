@@ -34,14 +34,15 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   this.driversNeeded = Math.ceil(this.deliveriesMade / 3);
 };
 
-function generateTableDataRow(inputPizzaStore, storeId) {
+function generateTableData(inputPizzaObject, storeId) {
   var row;
-  var ducks = document.getElementById(storeId);
+  this.storeId = storeId;
   var col1;
   var col2;
   var col3;
   var col4;
-  for(var i = 0; i < inputPizzaStore.length; i++){
+  for(var i = 0; i < inputPizzaObject.length; i++){
+    var rowTerminator = document.getElementById(storeId.name);
     var row = document.createElement('tr');
     col1 = document.createElement('td');
     col2 = document.createElement('td');
@@ -55,7 +56,7 @@ function generateTableDataRow(inputPizzaStore, storeId) {
     row.appendChild(col2);
     row.appendChild(col3);
     row.appendChild(col4);
-    ducks.appendChild(row);
+    rowTerminator.appendChild(row);
   }
   return row;
 };
@@ -64,47 +65,28 @@ function generateTableDataRow(inputPizzaStore, storeId) {
 
 //METHOD/FUNCTION CALLS
 var ballard = new StoreLocation('ballard');
-ballardstore.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('11:00 am', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('12:00 noon', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('1:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('2:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('3:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('4:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('5:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('6:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('7:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('8:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('9:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('10:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('11:00 pm', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('12 midnight', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('1:00 am', 0, 4, 0, 4));
+ballard.pushHourlyData(new HourlyData('8:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('9:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('10:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('11:00 am', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('12:00 noon', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('1:00 pm', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('5:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('6:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('7:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('11:00 pm', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('12 midnight', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('1:00 am', 8, 15, 6, 16));
 
 //OUTPUT TO TABLE
-var testOutput = generateTableDataRow(ballard.hourlyData, ballardstore);
-document.getElementById('ballardstore').appendChild(testOutput);
-
-// var pizzaTable = document.createElement('table');
-// for (i = 0; i < ballard.hourlyData.length; i++) {
-//   var rowoutput = generateTableDataRow(ballard.hourlyData[i]);
-//   pizzaTable.appendChild(rowoutput);
-// }
-// document.getElementById('ballardstore').appendChild(pizzaTable);
-
-// var firstRow = genorateHeadingRow(['name', 'age', 'language']);
-// var secondRow = genorateDataRow(['dunc', '88', 'javascript']);
-// var thirdRow = genorateDataRow(['slug', '707', 'html']);
-// var fourthRow = genorateDataRow(['neo', '301', 'css']);
-//
-// peopleTable.appendChild(firstRow);
-// peopleTable.appendChild(secondRow);
-// peopleTable.appendChild(thirdRow);
-// peopleTable.appendChild(fourthRow);
-//
-// document.getElementById('table-demo').appendChild(peopleTable);
+var ballardOutput = generateTableData(ballard.hourlyData, ballard);
+document.getElementById('ballard').appendChild(ballardOutput);
 
 //COMMENTED OUT ASCII ART
 //     _____ ______ _   _ _____    _    _ ______ _      _____
