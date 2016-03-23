@@ -11,6 +11,10 @@ margin-left: 1px solid #dddddd;
 margin-right: 1px solid #dddddd;
 background-color: #BAB8B5;
 }
+section.feature-image img {
+  display: block;
+  margin: 1em auto;
+}
 #featurenumber {
   color: #ea6249;
   background-color: #4f5152;
