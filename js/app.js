@@ -78,9 +78,27 @@ ballard.pushHourlyData(new HourlyData('10:00 pm', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('11:00 pm', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('12 midnight', 0, 4, 0, 4));
 ballard.pushHourlyData(new HourlyData('1:00 am', 0, 4, 0, 4));
-ballard.pushHourlyData(new HourlyData('2:00 am', 0, 4, 0, 4));
 
 //OUTPUT TO TABLE
+
+var pizzaTable = document.createElement('table');
+for (i = 0; i < ballard.hourlyData.length; i++) {
+  var rowoutput = generateTableDataRow(ballard.hourlyData[i]);
+  pizzaTable.appendChild(rowoutput);
+}
+document.getElementById('ballardstore').appendChild(pizzaTable);
+
+// var firstRow = genorateHeadingRow(['name', 'age', 'language']);
+// var secondRow = genorateDataRow(['dunc', '88', 'javascript']);
+// var thirdRow = genorateDataRow(['slug', '707', 'html']);
+// var fourthRow = genorateDataRow(['neo', '301', 'css']);
+//
+// peopleTable.appendChild(firstRow);
+// peopleTable.appendChild(secondRow);
+// peopleTable.appendChild(thirdRow);
+// peopleTable.appendChild(fourthRow);
+//
+// document.getElementById('table-demo').appendChild(peopleTable);
 
 //COMMENTED OUT ASCII ART
 //     _____ ______ _   _ _____    _    _ ______ _      _____
