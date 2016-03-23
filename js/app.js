@@ -205,6 +205,8 @@ document.getElementById('georgetown').appendChild(georgetownOutput);
 var ravennaOutput = generateTableData(ravenna.hourlyData, ravenna);
 document.getElementById('ravenna').appendChild(ravennaOutput);
 
+//total pizzas sold
+
 //COMMENTED OUT ASCII ART
 //     _____ ______ _   _ _____    _    _ ______ _      _____
 //    / ____|  ____| \ | |  __ \  | |  | |  ____| |    |  __ \
