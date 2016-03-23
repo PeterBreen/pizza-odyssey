@@ -11,18 +11,6 @@ margin-left: 1px solid #dddddd;
 margin-right: 1px solid #dddddd;
 background-color: #BAB8B5;
 }
-section.feature-image img {
-  display: block;
-  margin: 1em auto;
-}
-#featurenumber {
-  color: #ea6249;
-  background-color: #4f5152;
-  padding: 1em 2em;
-  max-width: 100%;
-  font-size: 1.25em;
-  border-radius: 50px;
-}
 h1 {
   color: #fcca51;
 font-size: 2.5em;
@@ -39,9 +27,6 @@ li {
 font-size: 1.2em;
 line-height: 1.5;
 }
-.internal-sale-heading {
-font-size: 1.6em;
-}
 table {
   width: 100%;
   max-width: 680px;
@@ -55,5 +40,20 @@ td, th {
 th {
 font-weight: bold;
 color: #466cc2;
+}
+.internal-sale-heading {
+font-size: 1.6em;
+}
+section.feature-image img {
+  display: block;
+  margin: 1em auto;
+}
+#featurenumber {
+  color: #ea6249;
+  background-color: #4f5152;
+  padding: 1em 2em;
+  max-width: 100%;
+  font-size: 1.25em;
+  border-radius: 50px;
 }
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
