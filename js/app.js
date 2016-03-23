@@ -126,6 +126,66 @@ international.pushHourlyData(new HourlyData('11:00 pm', 0, 2, 2, 8));
 international.pushHourlyData(new HourlyData('12 midnight', 0, 2, 2, 8));
 international.pushHourlyData(new HourlyData('1:00 am', 0, 2, 2, 8));
 
+var slu = new StoreLocation('slu');
+slu.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+slu.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+slu.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+slu.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+slu.pushHourlyData(new HourlyData('12:00 noon', 0, 7, 0, 4));
+slu.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+slu.pushHourlyData(new HourlyData('2:00 pm', 5, 15, 0, 4));
+slu.pushHourlyData(new HourlyData('3:00 pm', 5, 15, 0, 4));
+slu.pushHourlyData(new HourlyData('4:00 pm', 5, 15, 0, 4));
+slu.pushHourlyData(new HourlyData('5:00 pm', 25, 39, 13, 18));
+slu.pushHourlyData(new HourlyData('6:00 pm', 25, 39, 13, 18));
+slu.pushHourlyData(new HourlyData('7:00 pm', 25, 39, 13, 18));
+slu.pushHourlyData(new HourlyData('8:00 pm', 22, 36, 5, 22));
+slu.pushHourlyData(new HourlyData('9:00 pm', 22, 36, 5, 22));
+slu.pushHourlyData(new HourlyData('10:00 pm', 22, 36, 5, 22));
+slu.pushHourlyData(new HourlyData('11:00 pm', 5, 21, 16, 31));
+slu.pushHourlyData(new HourlyData('12 midnight', 5, 21, 16, 31));
+slu.pushHourlyData(new HourlyData('1:00 am', 5, 21, 16, 31));
+
+var georgetown = new StoreLocation('georgetown');
+georgetown.pushHourlyData(new HourlyData('8:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('9:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('10:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('11:00 am', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('12:00 noon', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('1:00 pm', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('2:00 pm', 1, 5, 1, 4));
+georgetown.pushHourlyData(new HourlyData('3:00 pm', 1, 5, 1, 4));
+georgetown.pushHourlyData(new HourlyData('4:00 pm', 1, 5, 1, 4));
+georgetown.pushHourlyData(new HourlyData('5:00 pm', 5, 13, 2, 4));
+georgetown.pushHourlyData(new HourlyData('6:00 pm', 5, 13, 2, 4));
+georgetown.pushHourlyData(new HourlyData('7:00 pm', 5, 13, 2, 4));
+georgetown.pushHourlyData(new HourlyData('8:00 pm', 22, 41, 15, 42));
+georgetown.pushHourlyData(new HourlyData('9:00 pm', 22, 41, 15, 42));
+georgetown.pushHourlyData(new HourlyData('10:00 pm', 22, 41, 15, 42));
+georgetown.pushHourlyData(new HourlyData('11:00 pm', 15, 20, 6, 21));
+georgetown.pushHourlyData(new HourlyData('12 midnight', 15, 20, 6, 21));
+georgetown.pushHourlyData(new HourlyData('1:00 am', 15, 20, 6, 21));
+
+var ravenna = new StoreLocation('ravenna');
+ravenna.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('12:00 noon', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('2:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('3:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('4:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('5:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('6:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('7:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('8:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('9:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('12 midnight', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
+
 //OUTPUT TO TABLE
 var ballardOutput = generateTableData(ballard.hourlyData, ballard);
 document.getElementById('ballard').appendChild(ballardOutput);
@@ -135,6 +195,12 @@ document.getElementById('ballard').appendChild(firsthillOutput);
 
 var internationalOutput = generateTableData(international.hourlyData, international);
 document.getElementById('international').appendChild(internationalOutput);
+
+var sluOutput = generateTableData(slu.hourlyData, slu);
+document.getElementById('slu').appendChild(sluOutput);
+
+var georgetownOutput = generateTableData(georgetown.hourlyData, georgetown);
+document.getElementById('georgetown').appendChild(georgetownOutput);
 
 //COMMENTED OUT ASCII ART
 //     _____ ______ _   _ _____    _    _ ______ _      _____
