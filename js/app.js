@@ -1,7 +1,7 @@
 //GLOBAL VARIABLES
 var totalPizzasMade = 0, branchPizzasMade = 0; // for total pizzas per day across all stores
 var totalPizzasArray = []; //for total pizzas per day across all stores
-var getRandomIntInclusive, sumArray, HourlyData, generateTableData, generateTotalSales; // function vars
+var getRandomIntInclusive, sumArray, HourlyData, generateTableData, generateTotalSales, newStore; // function vars
 
 // CONSTRUCTOR FUNCTIONS
 function StoreLocation(name){
@@ -236,50 +236,22 @@ if (pizzaOdyssey) {
 }
 
 //store name function - works with listener
-var createStoreName = document.getElementById('create-store-name');
-if (createStoreName) {
-  function collectStoreName(event){
+var createDataTable = document.getElementById('new-pizza-form');
+if (createDataTable) {
+  function collectDataForTable (event){
     event.preventDefault();
-    var storeNameFromUser = event.target.storenameinput.value;
+    var storeId = event.target.storenameinput.value;
     storename.textContent = storeNameFromUser;
     var newStore = new StoreLocation(event.target.storenameinput.value);
     console.log('newStore: ', newStore);
-    return newStore;
+    var inputTime = event.target.time.value;
+    var minPizzasInput = parseInt(event.target.maxpizzas.value);
+    var maxPizzasInput = parseInt(event.target.maxpizzas.value);
+    var minDeliverInput = parseInt(event.target.mindelivers.value);
+    var maxDeliverInput = parseInt(event.target.maxdelivers.value);
+    newStore.pushHourlyData(new HourlyData(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput));
+    console.log('inputTime, minpizzas, maxpizzas, mindeliver, maxdeliver: ', inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput);
   };
 }
-var createDataRow = document.getElementById('new-pizza-table');
-if (createDataRow) {
-  function collectDataRow (event){
-    event.preventDefault();
-    var inputTime = event.target.time.value;
-    var minPizzasInput = ParseInt(event.target.maxpizzas.value);
-    var maxPizzasInput = ParseInt(event.target.maxpizzas.value);
-    var minDeliverInput = ParseInt(event.target.mindelivers.value);
-    var maxDeliverInput = ParseInt(event.target.maxdelivers.value);
-    console.log(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput);
-    newStore.pushHourlyData(new HourlyData(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput));
-
-  }
-}
 //listeners
-createStoreName.addEventListener('submit', collectStoreName);
-createDataRow.addEventListener('submit', collectDataRow);
-
-// function collectNerdFighter(event){
-//   event.preventDefault();
-//   var highScoreTable = document.getElementById('high-score-table');
-//   var fighter = event.target.fighter.value;
-//   var score = parseInt(event.target.score.value);
-//   var fighterRow = document.createElement('tr');
-//   var fighterColumn = document.createElement('td');
-//   fighterColumn.textContent = fighter;
-//   fighterRow.appendChild(fighterColumn);
-//   var scoreColumn = document.createElement('td');
-//   scoreColumn.textContent = score;
-//   fighterRow.appendChild(scoreColumn);
-//   highScoreTable.appendChild(fighterRow);
-// }
-//
-// var createFighterForm = document.getElementById('high-score-form');
-//
-// createFighterForm.addEventListener('submit', collectNerdFighter);
+createDataTable.addEventListener('submit', collectDataForTable);
