@@ -7,6 +7,17 @@
 </head>
 <body>
   <h1>New Location Data Input Form</h1>
+  <form id="new-pizza-name">
+    <fieldset>
+      <legend>Store Name</legend>
+      <div class="input-item">
+        <input name="storename" type="text">
+      </div>
+      <div class="input-item">
+        <button type="submit">Submit Data</button>
+      </div>
+    </fieldset>
+  </form>
   <form id="new-pizza-form">
           <fieldset>
             <legend>Add Pizza Data</legend>
@@ -17,6 +28,20 @@
                 <option value="9:00am">9:00am</option>
                 <option value="10:00am">10:00am</option>
                 <option value="11:00am">11:00am</option>
+                <option value="12 noon">12 noon</option>
+                <option value="1:00pm">1:00pm</option>
+                <option value="2:00pm">2:00pm</option>
+                <option value="3:00pm">3:00pm</option>
+                <option value="4:00pm">4:00pm</option>
+                <option value="5:00pm">5:00pm</option>
+                <option value="6:00pm">6:00pm</option>
+                <option value="7:00pm">7:00pm</option>
+                <option value="8:00pm">8:00pm</option>
+                <option value="9:00pm">9:00pm</option>
+                <option value="10:00am">10:00pm</option>
+                <option value="11:00am">11:00pm</option>
+                <option value="12 midnight">12 midnight</option>
+                <option value="1:00am">1:00am</option>
               </select>
             </div>
 
@@ -43,7 +68,7 @@
           </fieldset>
 
 
-  <h2>Data Table</h2>
+  <h2 id="storename"></h2>
     <table id="new-pizza-table">
       <thead>
         <tr><th>Time</th><th>Pizzas Made</th><th>Deliveries Made</th><th>Drivers Needed</th>
