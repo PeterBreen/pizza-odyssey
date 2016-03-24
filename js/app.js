@@ -237,14 +237,15 @@ if (pizzaOdyssey) {
 
 //store name function - works with listener
 var createStoreName = document.getElementById('create-store-name');
-function createStoreName(event){
-  event.preventDefault();
-  var storeNameFromUser = event.target.storename.value;
-  createStoreName.textContent = storeNameFromUser;
-};
-
+if (createStoreName) {
+  function collectStoreName(event){
+    event.preventDefault();
+    var storeNameFromUser = event.target.storenameinput.value;
+    storename.textContent = storeNameFromUser;
+  };
+}
 //listeners
-createStoreName.addEventListener('submit', createStoreName);
+createStoreName.addEventListener('submit', collectStoreName);
 
 // function collectNerdFighter(event){
 //   event.preventDefault();
