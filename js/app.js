@@ -242,18 +242,26 @@ if (createStoreName) {
     event.preventDefault();
     var storeNameFromUser = event.target.storenameinput.value;
     storename.textContent = storeNameFromUser;
+    var newStore = new StoreLocation(event.target.storenameinput.value);
+    console.log('newStore: ', newStore);
+    return newStore;
   };
 }
-var createStoreCheck = document.getElementById('new-pizza-table');
-if (createStoreCheck) {
-  function addDataRow(event){
+var createDataRow = document.getElementById('new-pizza-table');
+if (createDataRow) {
+  function makeDataRow(event){
     event.preventDefault();
-    //this is the hard part
+    var inputTime = event.target.time.value;
+    var minPizzasInput = ParseInt(event.target.maxpizzas.value);
+    var maxPizzasInput = ParseInt(event.target.maxpizzas.value);
+    var minDeliverInput = ParseInt(event.target.mindelivers.value);
+    var maxDeliverInput = ParseInt(event.target.maxdelivers.value);
+    console.log(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput);
   }
 }
 //listeners
 createStoreName.addEventListener('submit', collectStoreName);
-createDataRow.addEventListener('submit', addDataRow);
+createDataRow.addEventListener('submit', makeDataRow);
 
 // function collectNerdFighter(event){
 //   event.preventDefault();
