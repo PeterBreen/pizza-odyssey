@@ -249,7 +249,7 @@ if (createStoreName) {
 }
 var createDataRow = document.getElementById('new-pizza-table');
 if (createDataRow) {
-  function makeDataRow(event){
+  function collectDataRow (event){
     event.preventDefault();
     var inputTime = event.target.time.value;
     var minPizzasInput = ParseInt(event.target.maxpizzas.value);
@@ -257,11 +257,13 @@ if (createDataRow) {
     var minDeliverInput = ParseInt(event.target.mindelivers.value);
     var maxDeliverInput = ParseInt(event.target.maxdelivers.value);
     console.log(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput);
+    newStore.pushHourlyData(new HourlyData(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput));
+
   }
 }
 //listeners
 createStoreName.addEventListener('submit', collectStoreName);
-createDataRow.addEventListener('submit', makeDataRow);
+createDataRow.addEventListener('submit', collectDataRow);
 
 // function collectNerdFighter(event){
 //   event.preventDefault();
