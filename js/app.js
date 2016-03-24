@@ -1,47 +1,25 @@
-//declare empty global variables here
-var totalPizzasMade; // for total pizzas per day across all stores
+//GLOBAL VARIABLES
+var totalPizzasMade = 0, branchPizzasMade = 0; // for total pizzas per day across all stores
+var totalPizzasArray = []; //for total pizzas per day across all stores
+var getRandomIntInclusive, sumArray, HourlyData, generateTableData, generateTotalSales; // function vars
 
-// big ugly gross global arrays
-var hoursOperation = ['8:00am','9:00am','10:00am','11:00am','12 noon','1:00pm','2:00pm','3:00pm','4:00pm','5:00pm','6:00pm','7:00pm','8:00pm','9:00pm','10:00pm','11:00pm','12 midnight','1:00am'];
-var minPizzasHourFloor = [0,0,0,0,0,0,2,2,2,15,15,15,12,12,12,5,5,5];
-var maxPizzasHourCeiling = [4,4,4,7,7,7,15,15,15,35,35,35,31,31,31,20,20,20];
-var minDeliveriesHour = [0,0,0,0,0,0,1,1,1,3,3,3,5,5,5,6,6,6];
-var maxDeliveriesHour = [4,4,4,4,4,4,4,4,4,8,8,8,12,12,12,11,11,11];
-//make sure these all read the same number - should be 18
-console.log ('minpizzashour length: ' + minPizzasHourFloor.length);
-console.log ('maxpizzashour length: ' + maxPizzasHourCeiling.length);
-console.log ('mindeliverieshour length: ' + minDeliveriesHour.length);
-console.log ('maxdeliverieshour length: ' + maxDeliveriesHour.length);
+// CONSTRUCTOR FUNCTIONS
+function StoreLocation(name){
+  this.name = name;
+  this.hourlyData = [];
+}
 
-// store name objects, these are the ul id="" fields
-ballard = {
-  timeOfDay: hoursOperation,
-};
-firstHill = {
-  timeOfDay: hoursOperation
-};
-international = {
-  timeOfDay: hoursOperation
-};
-slu = {
-  timeOfDay: hoursOperation
-};
-georgetown = {
-  timeOfDay: hoursOperation
-};
-ravenna = {
-  timeOfDay: hoursOperation
+//METHODS
+StoreLocation.prototype.pushHourlyData = function(data){
+  this.hourlyData.push(data);
 };
 
-//functionssssssssssssssssssssssssssss more like FUNctions am I right, no, no I am not right. UNFUNCtions.
-
-//random generator including min-max values, actually works (because someone else wrote it)
+//FUNCTIONING FUNCTIONS -  to avoid being hoist by my own petard
 function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-//sum of array values - yay for reusing old lab code
-var sumArray = function(inputSumArray) {
+function sumArray(inputSumArray) {
   var outputSumArray = 0;
   for (var i = 0; i < inputSumArray.length; i++) {
     outputSumArray += inputSumArray[i];
@@ -49,145 +27,218 @@ var sumArray = function(inputSumArray) {
   return outputSumArray;
 };
 
-//calculate pizzas sold per hour - use random function and really big and ugly global arrays above
-function calculatePizzasSold(storeName) {
-  var pizzasMadeHour = [];
-  for (i = 0; i < hoursOperation.length; i++) {
-    pizzasCalc = getRandomIntInclusive(minPizzasHourFloor[i], maxPizzasHourCeiling[i]);
-    pizzasMadeHour.push(pizzasCalc);
-  }
-  storeName.pizzasMade = pizzasMadeHour;
-}
+function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
+  var driver;
+  this.time = time;
+  this.pizzasSold = getRandomIntInclusive(minPizzas, maxPizzas);
+  this.deliveriesMade = getRandomIntInclusive(minDeliveries, maxDeliveries);
+  driver = Math.ceil(this.deliveriesMade / 3);
+  if (driver === 0) { this.driversNeeded = 'no driver reccomended';
+  } else { this.driversNeeded = driver;
+  };
+};
 
-//calculate deliveries made per hour - similar to calculating pizzas sold per hour
-//ALSO calculates delivery drivers per hour (keeping it in same scope BECAUSE ARGH)
-function calculatePizzasDelivered(storeName) {
-  var deliveriesMadeHour = [];
-  var driversPerHour = [];
-  for (i = 0; i < hoursOperation.length; i++) {
-    deliveriesCalc = getRandomIntInclusive(minDeliveriesHour[i], maxDeliveriesHour[i]);
-    deliveriesMadeHour.push(deliveriesCalc);
-    if (deliveriesCalc === 0) {
-      driversPerHour.push('[ driver not reccomended ]');
-    } else {
-      //return "drivers reccomended: x" where x is deliveries/3 rounded UP to this.driversHired
-      numDrivers = Math.ceil(deliveriesMadeHour[i] / 3);
-      driversPerHour.push('[ drivers reccomended: ' + numDrivers + ' ]');
+var salesDataCheck = document.getElementById('sales-data-body');
+if (salesDataCheck) {
+  function generateTableData(inputPizzaObject, storeId) {
+    var row;
+    this.storeId = storeId;
+    var col1;
+    var col2;
+    var col3;
+    var col4;
+    for(var i = 0; i < inputPizzaObject.length; i++){
+      var rowTerminator = document.getElementById(storeId.name);
+      var row = document.createElement('tr');
+      col1 = document.createElement('td');
+      col2 = document.createElement('td');
+      col3 = document.createElement('td');
+      col4 = document.createElement('td');
+      col1.textContent = storeId.hourlyData[i].time;
+      col2.textContent = storeId.hourlyData[i].pizzasSold;
+      col3.textContent = storeId.hourlyData[i].deliveriesMade;
+      col4.textContent = storeId.hourlyData[i].driversNeeded;
+      row.appendChild(col1);
+      row.appendChild(col2);
+      row.appendChild(col3);
+      row.appendChild(col4);
+      rowTerminator.appendChild(row);
     }
-    storeName.driversHired = driversPerHour;
-    storeName.pizzasDelivered = deliveriesMadeHour;
+    return row;
   }
-}
+};
 
-//run populateStoreObject on every store
-//populates an individual store's array
-function populateStoreObject(storeName) {
-  calculatePizzasSold(storeName);
-  calculatePizzasDelivered(storeName);
-}
-//run on every store - make this a loop later
-function populateStores() {
-  populateStoreObject(ballard);
-  populateStoreObject(firstHill);
-  populateStoreObject(georgetown);
-  populateStoreObject(international);
-  populateStoreObject(ravenna);
-  populateStoreObject(slu);
-}
-
-//run populateStores so I can fix content to HTML via DOM
-populateStores();
-
-//now that content is stored in arrays, make further poor choices in life
-//make this a for loop (maybe?) and define/reuse functions for repeated tasks (definitely!) at some point
-
-//adds ballard data to DOM
-var ballardUL = document.getElementById('ballardstore');
-if (ballardUL) {
-  var addballard;
-  var pizzasMade = ballard.pizzasMade;
-  var pizzasDelivered = ballard.pizzasDelivered;
-  var driversHired = ballard.driversHired;
-  for (i = 0; i < 18; i++) {
-    var addballard = document.createElement('li');
-    addballard.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-    ballardstore.appendChild(addballard);
+function generateTotalSales(inputPizzaObject, storeId2) {
+  var branchPizzasMade = 0;
+  for(var i = 0; i < inputPizzaObject.length; i++) {
+    branchPizzasMade += storeId2.hourlyData[i].pizzasSold;
   }
-}
-//adds first hill data to DOM
-var fhillUL = document.getElementById('firsthillstore');
-if (fhillUL) {
-  var addfirstHill;
-  var pizzasMade = firstHill.pizzasMade;
-  var pizzasDelivered = firstHill.pizzasDelivered;
-  var driversHired = firstHill.driversHired;
-  for (i = 0; i < 18; i++) {
-    var addfirstHill = document.createElement('li');
-    addfirstHill.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-    firsthillstore.appendChild(addfirstHill);
-  }
-}
-//adds international district data to DOM
-var internationalUL = document.getElementById('internationalstore');
-if (internationalUL) {
-  var addInternational;
-  var pizzasMade = international.pizzasMade;
-  var pizzasDelivered = international.pizzasDelivered;
-  var driversHired = international.driversHired;
-  for (i = 0; i < 18; i++) {
-    var addInternational = document.createElement('li');
-    addInternational.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-    internationalstore.appendChild(addInternational);
-  }
-}
+  return branchPizzasMade;
+};
+//CONSTRUCTOR OBJECTS
 
-// add SLU data to DOM
-var sluUL = document.getElementById('slustore');
-if (sluUL) {
-  var addSlu;
-  var pizzasMade = slu.pizzasMade;
-  var pizzasDelivered = slu.pizzasDelivered;
-  var driversHired = slu.driversHired;
-  for (i = 0; i < 18; i++) {
-    var addSlu = document.createElement('li');
-    addSlu.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-    slustore.appendChild(addSlu);
-  }
-}
+//METHOD/FUNCTION CALLS
+var ballard = new StoreLocation('ballard');
+ballard.pushHourlyData(new HourlyData('8:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('9:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('10:00 am', 0, 3, 1, 7));
+ballard.pushHourlyData(new HourlyData('11:00 am', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('12 noon', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('1:00 pm', 5, 10, 2, 8));
+ballard.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 7));
+ballard.pushHourlyData(new HourlyData('5:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('6:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('7:00 pm', 0, 15, 2, 9));
+ballard.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 4, 12));
+ballard.pushHourlyData(new HourlyData('11:00 pm', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('12 midnight', 8, 15, 6, 16));
+ballard.pushHourlyData(new HourlyData('1:00 am', 8, 15, 6, 16));
 
-//add Georgetown data to DOM
-var GeorgetownUL = document.getElementById('georgetownstore');
-if (GeorgetownUL) {
-  var addGeorgetown;
-  var pizzasMade = georgetown.pizzasMade;
-  var pizzasDelivered = georgetown.pizzasDelivered;
-  var driversHired = georgetown.driversHired;
-  for (i = 0; i < 18; i++) {
-    var addGeorgetown = document.createElement('li');
-    addGeorgetown.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-    georgetownstore.appendChild(addGeorgetown);
-  }
-}
+var firsthill = new StoreLocation('firsthill');
+firsthill.pushHourlyData(new HourlyData('8:00 am', 1, 3, 1, 7));
+firsthill.pushHourlyData(new HourlyData('9:00 am', 1, 3, 1, 7));
+firsthill.pushHourlyData(new HourlyData('10:00 am', 1, 3, 1, 7));
+firsthill.pushHourlyData(new HourlyData('11:00 am', 5, 9, 2, 8));
+firsthill.pushHourlyData(new HourlyData('12 noon', 5, 9, 2, 8));
+firsthill.pushHourlyData(new HourlyData('1:00 pm', 5, 9, 2, 8));
+firsthill.pushHourlyData(new HourlyData('2:00 pm', 2, 13, 1, 6));
+firsthill.pushHourlyData(new HourlyData('3:00 pm', 2, 13, 1, 6));
+firsthill.pushHourlyData(new HourlyData('4:00 pm', 2, 13, 1, 6));
+firsthill.pushHourlyData(new HourlyData('5:00 pm', 18, 32, 3, 9));
+firsthill.pushHourlyData(new HourlyData('6:00 pm', 18, 32, 3, 9));
+firsthill.pushHourlyData(new HourlyData('7:00 pm', 18, 32, 3, 9));
+firsthill.pushHourlyData(new HourlyData('8:00 pm', 1, 3, 5, 12));
+firsthill.pushHourlyData(new HourlyData('9:00 pm', 1, 3, 5, 12));
+firsthill.pushHourlyData(new HourlyData('10:00 pm', 1, 3, 5, 12));
+firsthill.pushHourlyData(new HourlyData('11:00 pm', 8, 20, 6, 16));
+firsthill.pushHourlyData(new HourlyData('12 midnight', 8, 20, 6, 16));
+firsthill.pushHourlyData(new HourlyData('1:00 am', 8, 20, 6, 16));
 
-//add Ravenna data to DOM; errorcheck
-var RavennaUL = document.getElementById('ravennastore');
-if (RavennaUL) {
-  var addRavenna;
-  var pizzasMade = ravenna.pizzasMade;
-  var pizzasDelivered = ravenna.pizzasDelivered;
-  var driversHired = ravenna.driversHired;
-  for (i = 0; i < 18; i++) {
-    var addRavenna = document.createElement('li');
-    addRavenna.textContent = this.hoursOperation[i] + ' ' + this.pizzasMade[i] + ' pizzas, ' + this.pizzasDelivered[i] + ' deliveries ' + ' -- ' + this.driversHired[i];
-    ravennastore.appendChild(addRavenna);
-  }
-}
+var international = new StoreLocation('international');
+international.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+international.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+international.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+international.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+international.pushHourlyData(new HourlyData('12 noon', 0, 7, 0, 4));
+international.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+international.pushHourlyData(new HourlyData('2:00 pm', 2, 15, 1, 4));
+international.pushHourlyData(new HourlyData('3:00 pm', 2, 15, 1, 4));
+international.pushHourlyData(new HourlyData('4:00 pm', 2, 15, 1, 4));
+international.pushHourlyData(new HourlyData('5:00 pm', 10, 26, 4, 6));
+international.pushHourlyData(new HourlyData('6:00 pm', 10, 26, 4, 6));
+international.pushHourlyData(new HourlyData('7:00 pm', 10, 26, 4, 6));
+international.pushHourlyData(new HourlyData('8:00 pm', 8, 22, 7, 15));
+international.pushHourlyData(new HourlyData('9:00 pm', 8, 22, 7, 15));
+international.pushHourlyData(new HourlyData('10:00 pm', 8, 22, 7, 15));
+international.pushHourlyData(new HourlyData('11:00 pm', 0, 2, 2, 8));
+international.pushHourlyData(new HourlyData('12 midnight', 0, 2, 2, 8));
+international.pushHourlyData(new HourlyData('1:00 am', 0, 2, 2, 8));
 
-// get totals for homepage, push to homepage
-var totalPizzasArray = ballard.pizzasMade.concat(firstHill.pizzasMade, international.pizzasMade, slu.pizzasMade, georgetown.pizzasMade, ravenna.pizzasMade);
-var pizzaSum = sumArray(totalPizzasArray);
-console.log('pizza sum: ' + pizzaSum);
+var slu = new StoreLocation('slu');
+slu.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+slu.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+slu.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+slu.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+slu.pushHourlyData(new HourlyData('12 noon', 0, 7, 0, 4));
+slu.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+slu.pushHourlyData(new HourlyData('2:00 pm', 5, 15, 0, 4));
+slu.pushHourlyData(new HourlyData('3:00 pm', 5, 15, 0, 4));
+slu.pushHourlyData(new HourlyData('4:00 pm', 5, 15, 0, 4));
+slu.pushHourlyData(new HourlyData('5:00 pm', 25, 39, 13, 18));
+slu.pushHourlyData(new HourlyData('6:00 pm', 25, 39, 13, 18));
+slu.pushHourlyData(new HourlyData('7:00 pm', 25, 39, 13, 18));
+slu.pushHourlyData(new HourlyData('8:00 pm', 22, 36, 5, 22));
+slu.pushHourlyData(new HourlyData('9:00 pm', 22, 36, 5, 22));
+slu.pushHourlyData(new HourlyData('10:00 pm', 22, 36, 5, 22));
+slu.pushHourlyData(new HourlyData('11:00 pm', 5, 21, 16, 31));
+slu.pushHourlyData(new HourlyData('12 midnight', 5, 21, 16, 31));
+slu.pushHourlyData(new HourlyData('1:00 am', 5, 21, 16, 31));
+
+var georgetown = new StoreLocation('georgetown');
+georgetown.pushHourlyData(new HourlyData('8:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('9:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('10:00 am', 2, 7, 3, 5));
+georgetown.pushHourlyData(new HourlyData('11:00 am', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('12 noon', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('1:00 pm', 3, 8, 3, 9));
+georgetown.pushHourlyData(new HourlyData('2:00 pm', 1, 5, 1, 4));
+georgetown.pushHourlyData(new HourlyData('3:00 pm', 1, 5, 1, 4));
+georgetown.pushHourlyData(new HourlyData('4:00 pm', 1, 5, 1, 4));
+georgetown.pushHourlyData(new HourlyData('5:00 pm', 5, 13, 2, 4));
+georgetown.pushHourlyData(new HourlyData('6:00 pm', 5, 13, 2, 4));
+georgetown.pushHourlyData(new HourlyData('7:00 pm', 5, 13, 2, 4));
+georgetown.pushHourlyData(new HourlyData('8:00 pm', 22, 41, 15, 42));
+georgetown.pushHourlyData(new HourlyData('9:00 pm', 22, 41, 15, 42));
+georgetown.pushHourlyData(new HourlyData('10:00 pm', 22, 41, 15, 42));
+georgetown.pushHourlyData(new HourlyData('11:00 pm', 15, 20, 6, 21));
+georgetown.pushHourlyData(new HourlyData('12 midnight', 15, 20, 6, 21));
+georgetown.pushHourlyData(new HourlyData('1:00 am', 15, 20, 6, 21));
+
+var ravenna = new StoreLocation('ravenna');
+ravenna.pushHourlyData(new HourlyData('8:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('9:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('10:00 am', 0, 4, 0, 4));
+ravenna.pushHourlyData(new HourlyData('11:00 am', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('12 noon', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('1:00 pm', 0, 7, 0, 4));
+ravenna.pushHourlyData(new HourlyData('2:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('3:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('4:00 pm', 2, 15, 1, 4));
+ravenna.pushHourlyData(new HourlyData('5:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('6:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('7:00 pm', 6, 9, 5, 18));
+ravenna.pushHourlyData(new HourlyData('8:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('9:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('10:00 pm', 4, 8, 2, 5));
+ravenna.pushHourlyData(new HourlyData('11:00 pm', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('12 midnight', 2, 4, 3, 11));
+ravenna.pushHourlyData(new HourlyData('1:00 am', 2, 4, 3, 11));
+
+//Total Pizzas sold per store
+var ballardTotalSaleCount = generateTotalSales(ballard.hourlyData, ballard);
+var firsthillTotalSaleCount = generateTotalSales(firsthill.hourlyData, firsthill);
+var internationalTotalSaleCount = generateTotalSales(international.hourlyData, international);
+var sluTotalSaleCount = generateTotalSales(slu.hourlyData, slu);
+var georgetownTotalSaleCount = generateTotalSales(georgetown.hourlyData, georgetown);
+var ravennaTotalSaleCount = generateTotalSales(ravenna.hourlyData, ravenna);
+
+//OUTPUT TO TABLE
+var salesDataCheck = document.getElementById('sales-data-body');
+if (salesDataCheck) {
+  var ballardOutput = generateTableData(ballard.hourlyData, ballard);
+  document.getElementById('ballard').appendChild(ballardOutput);
+
+  var firsthillOutput = generateTableData(firsthill.hourlyData, firsthill);
+  document.getElementById('ballard').appendChild(firsthillOutput);
+
+  var internationalOutput = generateTableData(international.hourlyData, international);
+  document.getElementById('international').appendChild(internationalOutput);
+
+  var sluOutput = generateTableData(slu.hourlyData, slu);
+  document.getElementById('slu').appendChild(sluOutput);
+
+  var georgetownOutput = generateTableData(georgetown.hourlyData, georgetown);
+  document.getElementById('georgetown').appendChild(georgetownOutput);
+
+  var ravennaOutput = generateTableData(ravenna.hourlyData, ravenna);
+  document.getElementById('ravenna').appendChild(ravennaOutput);
+};
+//create total pizzas sold, push to homepage via DOM
+
+var totalPizzasMade = ballardTotalSaleCount + firsthillTotalSaleCount + internationalTotalSaleCount + sluTotalSaleCount + georgetownTotalSaleCount + ravennaTotalSaleCount;
 var pizzaOdyssey = document.getElementById('featurenumber');
 if (pizzaOdyssey) {
-  featurenumber.textContent = pizzaSum + ' happy pizza odysseys this week!';
+  featurenumber.textContent = totalPizzasMade + ' happy pizza odysseys this week!';
 }
+//COMMENTED OUT ASCII ART
+//     _____ ______ _   _ _____    _    _ ______ _      _____
+//    / ____|  ____| \ | |  __ \  | |  | |  ____| |    |  __ \
+//   | (___ | |__  |  \| | |  | | | |__| | |__  | |    | |__) |
+//    \___ \|  __| | . ` | |  | | |  __  |  __| | |    |  ___/
+//    ____) | |____| |\  | |__| | | |  | | |____| |____| |
+//   |_____/|______|_| \_|_____/  |_|  |_|______|______|_|
+//
