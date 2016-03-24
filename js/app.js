@@ -240,18 +240,20 @@ var createDataTable = document.getElementById('new-pizza-form');
 if (createDataTable) {
   function collectDataForTable (event){
     event.preventDefault();
-    var storeId = event.target.storenameinput.value;
-    storename.textContent = storeNameFromUser;
-    var newStore = new StoreLocation(event.target.storenameinput.value);
-    console.log('newStore: ', newStore);
-    var inputTime = event.target.time.value;
-    var minPizzasInput = parseInt(event.target.maxpizzas.value);
-    var maxPizzasInput = parseInt(event.target.maxpizzas.value);
-    var minDeliverInput = parseInt(event.target.mindelivers.value);
-    var maxDeliverInput = parseInt(event.target.maxdelivers.value);
-    newStore.pushHourlyData(new HourlyData(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput));
-    console.log('inputTime, minpizzas, maxpizzas, mindeliver, maxdeliver: ', inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput);
+    // storenameinput.textContent = storeNameFromUser;
+    var storeId = new StoreLocation(event.target.storenameinput.value);
+    console.log('storeId.name: ', storeId.name);
+    // var inputTime = event.target.time.value;
+    var minPizzasInput = parseInt(event.target.minpizzas1.value);
+    var maxPizzasInput = parseInt(event.target.maxpizzas1.value);
+    var minDeliverInput = parseInt(event.target.mindelivers1.value);
+    var maxDeliverInput = parseInt(event.target.maxdelivers1.value);
+    //storeId.pushHourlyData(new HourlyData(inputTime, minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput));
+    console.log('minpizzas, maxpizzas, mindeliver, maxdeliver: ', minPizzasInput, maxPizzasInput, minDeliverInput, maxDeliverInput);
   };
 }
 //listeners
 createDataTable.addEventListener('submit', collectDataForTable);
+
+//sample code from Drew which should help
+//var firstRow = generateHeadingRow(['Time', 'Pizzas Sold','Deliveries Made','Drivers Needed']);
