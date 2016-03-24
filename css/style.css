@@ -62,6 +62,12 @@ label {
   display: inline-block;
   width: 170px;
 }
+select.input {
+padding: 5px;
+}
+fieldset {
+  margin-bottom: 2em;
+}
 #featurenumber {
   color: #ea6249;
   background-color: #4f5152;
