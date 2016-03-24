@@ -242,3 +242,22 @@ if (pizzaOdyssey) {
 //    ____) | |____| |\  | |__| | | |  | | |____| |____| |
 //   |_____/|______|_| \_|_____/  |_|  |_|______|______|_|
 //
+
+// function collectNerdFighter(event){
+//   event.preventDefault();
+//   var highScoreTable = document.getElementById('high-score-table');
+//   var fighter = event.target.fighter.value;
+//   var score = parseInt(event.target.score.value);
+//   var fighterRow = document.createElement('tr');
+//   var fighterColumn = document.createElement('td');
+//   fighterColumn.textContent = fighter;
+//   fighterRow.appendChild(fighterColumn);
+//   var scoreColumn = document.createElement('td');
+//   scoreColumn.textContent = score;
+//   fighterRow.appendChild(scoreColumn);
+//   highScoreTable.appendChild(fighterRow);
+// }
+//
+// var createFighterForm = document.getElementById('high-score-form');
+//
+// createFighterForm.addEventListener('submit', collectNerdFighter);
