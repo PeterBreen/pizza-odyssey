@@ -11,74 +11,135 @@
   <li><a href="index.html">Pizza 3001 Homepage</a></li>
   <li><a href="sales-data.html">Sales Data Intranet</a></li>
   </ul>
-  <form id="create-store-name">
+  <form id="new-pizza-form">
     <fieldset>
-      <legend>Store Name</legend>
+
+            <legend>Add New Store Data</legend>
       <div class="input-item">
+        <label name="storenameinput">Name of Store:</label>
         <input name="storenameinput" type="text">
       </div>
-      <div class="input-item">
-        <button type="submit">Submit Data</button>
-      </div>
-    </fieldset>
-  </form>
-  <form id="new-pizza-form">
-          <fieldset>
-            <legend>Add Pizza Data</legend>
-            <div class="input-item">
-              <label name="time">Time of day:</label>
-              <select id="time">
-                <option value="8:00am">8:00am</option>
-                <option value="9:00am">9:00am</option>
-                <option value="10:00am">10:00am</option>
-                <option value="11:00am">11:00am</option>
-                <option value="12 noon">12 noon</option>
-                <option value="1:00pm">1:00pm</option>
-                <option value="2:00pm">2:00pm</option>
-                <option value="3:00pm">3:00pm</option>
-                <option value="4:00pm">4:00pm</option>
-                <option value="5:00pm">5:00pm</option>
-                <option value="6:00pm">6:00pm</option>
-                <option value="7:00pm">7:00pm</option>
-                <option value="8:00pm">8:00pm</option>
-                <option value="9:00pm">9:00pm</option>
-                <option value="10:00am">10:00pm</option>
-                <option value="11:00am">11:00pm</option>
-                <option value="12 midnight">12 midnight</option>
-                <option value="1:00am">1:00am</option>
-              </select>
-            </div>
-
-
+          <h4>8:00AM - 11:00AM</h4> <!--1-->
             <div class="input-item">
               <label name="minpizzas">Minimum Pizzas Sold:</label>
-              <input name="minpizzas" type="number">
+              <input name="minpizzas1" type="text">
             </div>
             <div class="input-item">
             <label name="maxpizzas">Maximum Pizzas Sold:</label>
-            <input name="maxpizzas" type="number">
+            <input name="maxpizzas1" type="text">
           </div>
           <div class="input-item">
             <label name="mindelivers">Minimum Deliveries:</label>
-            <input name="mindelivers" type="number">
+            <input name="mindelivers1" type="text">
           </div>
           <div class="input-item">
             <label name="maxdelivers">Maximum Deliveries:</label>
-            <input name="maxdelivers" type="number">
+            <input name="maxdelivers1" type="text">
           </div>
+
+          <!-- <h4>11:00AM - 2:00PM</h4>
+            <div class="input-item">
+              <label name="minpizzas">Minimum Pizzas Sold:</label>
+              <input name="minpizzas2" type="text">
+            </div>
+            <div class="input-item">
+            <label name="maxpizzas">Maximum Pizzas Sold:</label>
+            <input name="maxpizzas2" type="text">
+          </div>
+          <div class="input-item">
+            <label name="mindelivers">Minimum Deliveries:</label>
+            <input name="mindelivers2" type="text">
+          </div>
+          <div class="input-item">
+            <label name="maxdelivers">Maximum Deliveries:</label>
+            <input name="maxdelivers2" type="text">
+          </div>
+
+          <h4>2:00PM - 5:00PM</h4>
+            <div class="input-item">
+              <label name="minpizzas">Minimum Pizzas Sold:</label>
+              <input name="minpizzas3" type="text">
+            </div>
+            <div class="input-item">
+            <label name="maxpizzas">Maximum Pizzas Sold:</label>
+            <input name="maxpizzas3" type="text">
+          </div>
+          <div class="input-item">
+            <label name="mindelivers">Minimum Deliveries:</label>
+            <input name="mindelivers3" type="text">
+          </div>
+          <div class="input-item">
+            <label name="maxdelivers">Maximum Deliveries:</label>
+            <input name="maxdelivers3" type="text">
+          </div>
+
+          <h4>5:00PM - 8:00PM</h4>
+            <div class="input-item">
+              <label name="minpizzas">Minimum Pizzas Sold:</label>
+              <input name="minpizzas4" type="text">
+            </div>
+            <div class="input-item">
+            <label name="maxpizzas">Maximum Pizzas Sold:</label>
+            <input name="maxpizzas4" type="text">
+          </div>
+          <div class="input-item">
+            <label name="mindelivers">Minimum Deliveries:</label>
+            <input name="mindelivers4" type="text">
+          </div>
+          <div class="input-item">
+            <label name="maxdelivers">Maximum Deliveries:</label>
+            <input name="maxdelivers4" type="text">
+          </div>
+
+          <h4>8:00AM - 11:00PM</h4>
+            <div class="input-item">
+              <label name="minpizzas">Minimum Pizzas Sold:</label>
+              <input name="minpizzas5" type="text">
+            </div>
+            <div class="input-item">
+            <label name="maxpizzas">Maximum Pizzas Sold:</label>
+            <input name="maxpizzas5" type="text">
+          </div>
+          <div class="input-item">
+            <label name="mindelivers">Minimum Deliveries:</label>
+            <input name="mindelivers5" type="text">
+          </div>
+          <div class="input-item">
+            <label name="maxdelivers">Maximum Deliveries:</label>
+            <input name="maxdelivers5" type="text">
+          </div>
+
+          <h4>11:00PM - 2:00AM</h4>
+            <div class="input-item">
+              <label name="minpizzas">Minimum Pizzas Sold:</label>
+              <input name="minpizzas6" type="text">
+            </div>
+            <div class="input-item">
+            <label name="maxpizzas">Maximum Pizzas Sold:</label>
+            <input name="maxpizzas6" type="text">
+          </div>
+          <div class="input-item">
+            <label name="mindelivers">Minimum Deliveries:</label>
+            <input name="mindelivers6" type="text">
+          </div>
+          <div class="input-item">
+            <label name="maxdelivers">Maximum Deliveries:</label>
+            <input name="maxdelivers6" type="text">
+          </div> -->
+
+          <!--end of input submit button -->
           <div class="input-item">
             <button type="submit">Submit Data</button>
           </div>
           </fieldset>
+      </form>
 
-
-<p class="internal-sale-heading" id="storename"></p>
+<!-- <p class="internal-sale-heading" id="storename"></p>
     <table id="new-pizza-table">
       <thead>
         <tr><th>Time</th><th>Pizzas Made</th><th>Deliveries Made</th><th>Drivers Needed</th>
       </thead>
-    </table>
-</form>
+    </table> -->
 <script src="js/app.js"></script>
 </body>
 </html>
