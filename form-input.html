@@ -6,8 +6,50 @@
   <link href="css/style.css" type="text/css" rel="stylesheet">
 </head>
 <body>
-<h1>New Branch Input Form</h1>
+  <h1>New Location Data Input Form</h1>
+  <form id="new-pizza-form">
+          <fieldset>
+            <legend>Add Pizza Data</legend>
+            <div class="input-item">
+              <label name="time">Time of day:</label>
+              <select id="time">
+                <option value="8:00am">8:00am</option>
+                <option value="9:00am">9:00am</option>
+                <option value="10:00am">10:00am</option>
+                <option value="11:00am">11:00am</option>
+              </select>
+            </div>
 
+
+            <div class="input-item">
+              <label name="minpizzas">Minimum Pizzas Sold:</label>
+              <input name="minpizzas" type="text">
+            </div>
+            <div class="input-item">
+            <label name="minpizzas">Maximum Pizzas Sold:</label>
+            <input name="minpizzas" type="text">
+          </div>
+          <div class="input-item">
+            <label name="minpizzas">Minimum Deliveries:</label>
+            <input name="minpizzas" type="text">
+          </div>
+          <div class="input-item">
+            <label name="minpizzas">Maximum Deliveries:</label>
+            <input name="minpizzas" type="text">
+          </div>
+          <div class="input-item">
+            <button type="submit">Submit Data</button>
+          </div>
+          </fieldset>
+
+
+  <h2>Data Table</h2>
+    <table id="new-pizza-table">
+      <thead>
+        <tr><th>Time</th><th>Pizzas Made</th><th>Deliveries Made</th><th>Drivers Needed</th>
+      </thead>
+    </table>
+</form>
 <script src="js/app.js"></script>
 </body>
 </html>
