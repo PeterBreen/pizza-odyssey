@@ -244,8 +244,16 @@ if (createStoreName) {
     storename.textContent = storeNameFromUser;
   };
 }
+var createStoreCheck = document.getElementById('new-pizza-table');
+if (createStoreCheck) {
+  function addDataRow(event){
+    event.preventDefault();
+    //this is the hard part
+  }
+}
 //listeners
 createStoreName.addEventListener('submit', collectStoreName);
+createDataRow.addEventListener('submit', addDataRow);
 
 // function collectNerdFighter(event){
 //   event.preventDefault();
