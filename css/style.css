@@ -41,12 +41,26 @@ th {
 font-weight: bold;
 color: #466cc2;
 }
+.btcf:after {
+    content:"";
+    display:table;
+    clear:both;
+}
 .internal-sale-heading {
 font-size: 1.6em;
 }
 section.feature-image img {
   display: block;
   margin: 1em auto;
+}
+.input-item {
+  display: block;
+  margin-bottom: 0.5em;
+  width: 500px;
+}
+label {
+  display: inline-block;
+  width: 170px;
 }
 #featurenumber {
   color: #ea6249;
