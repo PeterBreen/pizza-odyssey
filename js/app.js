@@ -234,14 +234,17 @@ var pizzaOdyssey = document.getElementById('featurenumber');
 if (pizzaOdyssey) {
   featurenumber.textContent = totalPizzasMade + ' happy pizza odysseys this week!';
 }
-//COMMENTED OUT ASCII ART
-//     _____ ______ _   _ _____    _    _ ______ _      _____
-//    / ____|  ____| \ | |  __ \  | |  | |  ____| |    |  __ \
-//   | (___ | |__  |  \| | |  | | | |__| | |__  | |    | |__) |
-//    \___ \|  __| | . ` | |  | | |  __  |  __| | |    |  ___/
-//    ____) | |____| |\  | |__| | | |  | | |____| |____| |
-//   |_____/|______|_| \_|_____/  |_|  |_|______|______|_|
-//
+
+//store name function - works with listener
+var createStoreName = document.getElementById('create-store-name');
+function createStoreName(event){
+  event.preventDefault();
+  var storeNameFromUser = event.target.storename.value;
+  createStoreName.textContent = storeNameFromUser;
+};
+
+//listeners
+createStoreName.addEventListener('submit', createStoreName);
 
 // function collectNerdFighter(event){
 //   event.preventDefault();
