@@ -7,8 +7,8 @@ body {
 max-width: 700px;
 margin: 0 auto;
 padding: 1.5em 3em;
-margin-left: 1px solid #dddddd;
-margin-right: 1px solid #dddddd;
+border-left: 1px solid #000000;
+border-right: 1px solid #000000;
 background-color: #BAB8B5;
 }
 h1 {
@@ -44,14 +44,6 @@ th {
 font-weight: bold;
 color: #466cc2;
 }
-.btcf:after {
-    content:"";
-    display:table;
-    clear:both;
-}
-.internal-sale-heading {
-font-size: 1.6em;
-}
 section.feature-image img {
   display: block;
   margin: 1em auto;
@@ -71,7 +63,7 @@ padding: 5px;
 fieldset {
   margin-bottom: 2em;
 }
-#featurenumber {
+.featurenumber {
   color: #ea6249;
   background-color: #4f5152;
   padding: 1em 2em;
