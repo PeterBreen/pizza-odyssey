@@ -26,6 +26,17 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   } else { this.driversNeeded = driver;
   };
 };
+function generateTableHeading(inputHeadingArray) {
+  var row = document.createElement('tr');
+  var col;
+  for (var i = 0; i < inputHeadingArray.length; i++) {
+    col = document.createElement('th');
+    col.textContent = inputHeadingArray[i];
+    row.appendChild(col);
+  }
+  return row;
+};
+
 var salesDataCheck = document.getElementById('sales-data-body');
 if (salesDataCheck) {
   function generateTableData(inputPizzaObject, storeId) {
@@ -51,6 +62,7 @@ if (salesDataCheck) {
       row.appendChild(col4);
       rowTerminator.appendChild(row);
     }
+    document.getElementById('storeId').appendChild(row);
     return row;
   }
 };
