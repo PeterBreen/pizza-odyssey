@@ -16,7 +16,7 @@ index.html
   - add footer, text  
   - add street addresses to store locations  
   - adds contact us information  
-  - updates pizza odyssey number to the only number that matters to Jonathan
+  - updates pizza odyssey number CORRECTLY.
   - content cleanup in concert with css  
 
 sales-data.html  
@@ -24,6 +24,9 @@ sales-data.html
   - content cleanup maybe  
   - stuff  
   - things  
+
+ js/app.js  
+  - *IS THAT SOME FUNCTIONING LOCALSTORAGE? OH SHIT*
 
 ###Thursday, March 24
 css/style.css  
