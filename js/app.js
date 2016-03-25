@@ -32,10 +32,11 @@ function generateTable(storeId) {
   storeNameHeader.textContent = storeId.name;
   tablePlaceCheck.appendChild(storeNameHeader);
   var createTable = document.createElement('table');
-  storeNameHeader.appendChild(createTable);
+  tablePlaceCheck.appendChild(createTable);
+  createTable.setAttribute("id", storeId.name);
   var tableHead = generateTableHeading(['Time','Pizzas Sold','Deliveries Made','Drivers Needed']);
   createTable.appendChild(tableHead);
-
+  var tableBody = generateTableData(storeId.hourlyData, storeId);
 };
 
 function generateTableHeading(inputHeadingArray) {
@@ -74,7 +75,6 @@ if (salesDataCheck) {
       row.appendChild(col4);
       rowTerminator.appendChild(row);
     }
-    document.getElementById('storeId').appendChild(row);
     return row;
   }
 };
