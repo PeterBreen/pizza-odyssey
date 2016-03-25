@@ -84,7 +84,7 @@ function calculateTableData(storeId) {
   storeId.pushHourlyData(new HourlyData('8:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
   storeId.pushHourlyData(new HourlyData('9:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
   storeId.pushHourlyData(new HourlyData('10:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
-  generateTableData();
+  generateTableData(storeId, this.storeId);
 };
 
 //OUTPUT TO TABLE
