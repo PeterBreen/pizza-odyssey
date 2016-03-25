@@ -127,6 +127,21 @@ function calculateTableData(storeId) {
   storeId.pushHourlyData(new HourlyData('8:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
   storeId.pushHourlyData(new HourlyData('9:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
   storeId.pushHourlyData(new HourlyData('10:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
+  storeId.pushHourlyData(new HourlyData('11:00 am', minPizzasInput2, maxPizzasInput2, minDeliverInput2, maxDeliverInput2));
+  storeId.pushHourlyData(new HourlyData('12 noon', minPizzasInput2, maxPizzasInput2, minDeliverInput2, maxDeliverInput2));
+  storeId.pushHourlyData(new HourlyData('1:00 pm', minPizzasInput2, maxPizzasInput2, minDeliverInput2, maxDeliverInput2));
+  storeId.pushHourlyData(new HourlyData('2:00 pm', minPizzasInput3, maxPizzasInput3, minDeliverInput3, maxDeliverInput3));
+  storeId.pushHourlyData(new HourlyData('3:00 pm', minPizzasInput3, maxPizzasInput3, minDeliverInput3, maxDeliverInput3));
+  storeId.pushHourlyData(new HourlyData('4:00 pm', minPizzasInput3, maxPizzasInput3, minDeliverInput3, maxDeliverInput3));
+  storeId.pushHourlyData(new HourlyData('5:00 pm', minPizzasInput4, maxPizzasInput4, minDeliverInput4, maxDeliverInput4));
+  storeId.pushHourlyData(new HourlyData('6:00 pm', minPizzasInput4, maxPizzasInput4, minDeliverInput4, maxDeliverInput4));
+  storeId.pushHourlyData(new HourlyData('7:00 pm', minPizzasInput4, maxPizzasInput4, minDeliverInput4, maxDeliverInput4));
+  storeId.pushHourlyData(new HourlyData('8:00 pm', minPizzasInput5, maxPizzasInput5, minDeliverInput5, maxDeliverInput5));
+  storeId.pushHourlyData(new HourlyData('9:00 pm', minPizzasInput5, maxPizzasInput5, minDeliverInput5, maxDeliverInput5));
+  storeId.pushHourlyData(new HourlyData('10:00 pm', minPizzasInput5, maxPizzasInput5, minDeliverInput5, maxDeliverInput5));
+  storeId.pushHourlyData(new HourlyData('11:00 pm', minPizzasInput6, maxPizzasInput6, minDeliverInput6, maxDeliverInput6));
+  storeId.pushHourlyData(new HourlyData('12 midnight', minPizzasInput6, maxPizzasInput6, minDeliverInput6, maxDeliverInput6));
+  storeId.pushHourlyData(new HourlyData('1:00 am', minPizzasInput6, maxPizzasInput6, minDeliverInput6, maxDeliverInput6));
   return storeId;
 };
 
