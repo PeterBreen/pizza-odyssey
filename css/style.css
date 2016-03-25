@@ -27,7 +27,7 @@ h2 {
 h3 {
     padding-bottom: 0.5em;
 }
-li {
+li, p {
 font-size: 1.2em;
 line-height: 1.5;
 }
@@ -105,5 +105,15 @@ nav li:last-child:after {
 }
 form {
   margin-top: 1em;
+}
+.mailto {
+text-decoration: none;
+color: #e6482c;
+}
+.mailto:hover {
+  text-decoration: underline;
+}
+footer {
+  font-size: 0.8em;
 }
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
