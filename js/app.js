@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-var totalPizzasMade, storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
+var totalPizzasMade = 'a whole lot of', storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
 // CONSTRUCTOR FUNCTIONS
 function StoreLocation(name){
   this.name = name;
@@ -20,6 +20,7 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   var driver;
   this.time = time;
   this.pizzasSold = getRandomIntInclusive(minPizzas, maxPizzas);
+  totalPizzasMade += this.pizzasSold;
   this.deliveriesMade = getRandomIntInclusive(minDeliveries, maxDeliveries);
   driver = Math.ceil(this.deliveriesMade / 3);
   if (driver === 0) { this.driversNeeded = 'no driver reccomended';
