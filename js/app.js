@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-var totalPizzasMade, storeId, inputPizzaObject, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
+var totalPizzasMade, storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
 // CONSTRUCTOR FUNCTIONS
 function StoreLocation(name){
   this.name = name;
@@ -26,6 +26,18 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   } else { this.driversNeeded = driver;
   };
 };
+var tablePlaceCheck = document.getElementById('store-data-location');
+function generateTable(storeId) {
+  var storeNameHeader = document.createElement('h3');
+  storeNameHeader.textContent = storeId.name;
+  tablePlaceCheck.appendChild(storeNameHeader);
+  var createTable = document.createElement('table');
+  storeNameHeader.appendChild(createTable);
+  var tableHead = generateTableHeading(['Time','Pizzas Sold','Deliveries Made','Drivers Needed']);
+  createTable.appendChild(tableHead);
+
+};
+
 function generateTableHeading(inputHeadingArray) {
   var row = document.createElement('tr');
   var col;
@@ -86,17 +98,16 @@ if (createDataTable) {
     minDeliverInput1 = parseInt(event.target.mindelivers1.value);
     maxDeliverInput1 = parseInt(event.target.maxdelivers1.value);
     calculateTableData(storeId);
+    generateTable(storeId);
     return storeId;
   };
 }
 
 function calculateTableData(storeId) {
-  this.storeId = storeId.name;
-  console.log('storeId: ', storeId, 'this.storeId: ', this.storeId);
   storeId.pushHourlyData(new HourlyData('8:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
   storeId.pushHourlyData(new HourlyData('9:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
   storeId.pushHourlyData(new HourlyData('10:00 am', minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1));
-  generateTableData(storeId, this.storeId);
+  return storeId;
 };
 
 //OUTPUT TO TABLE
