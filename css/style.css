@@ -1,22 +1,23 @@
 html, body {
 font-family: 'Questrial', sans-serif;
-background-color: #4F5152;
+background-color: #4f5152;
 font-size: 16px;
 }
 body {
-max-width: 700px;
-margin: 0 auto;
-padding: 1.5em 3em;
-border-left: 1px solid #000000;
-border-right: 1px solid #000000;
-background-color: #BAB8B5;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5em 3em;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  background-color: #bab8b5;
 }
 h1 {
   color: #fcca51;
-font-size: 2.5em;
-background-color: #4f5152;
-padding: 0.5em 1em;
-border-radius: 50px;
+  font-size: 2.5em;
+  background-color: #4f5152;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+  margin-bottom: 0.5em;
 }
 h2 {
   color: #466cc2;
@@ -72,11 +73,10 @@ fieldset {
   border-radius: 50px;
 }
 nav {
-  color: #fcca51;
-font-size: 0.9em;
-background-color: #4f5152;
-padding: 0;
-border-radius: 4em;
+  font-size: 0.9em;
+  background-color: #4f5152;
+  padding: 0;
+  border-radius: 4em;
 }
 nav ul {
   padding: 0.1em;
@@ -85,16 +85,25 @@ nav ul {
   text-align: center;
 }
 nav li {
-display: inline;
+  display: inline;
+}
+li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+li a:hover {
+  text-decoration: underline;
+  color: #ea6249;
 }
 nav li:after {
   content: " ~~~ ";
-  color: #ffffff;
-  padding-left: 0.5em
-  padding-right: 0.5em;
+  color: #BAB8B5;
 }
 nav li:last-child:after {
   content: "";
   padding-right: 0em;
+}
+form {
+  margin-top: 1em;
 }
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
