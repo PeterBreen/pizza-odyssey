@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-var totalPizzasMade = '> 9000', storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
+var totalPizzasMade = 0, storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
 // CONSTRUCTOR FUNCTIONS
 function StoreLocation(name){
   this.name = name;
@@ -75,6 +75,7 @@ if (salesDataCheck) {
       row.appendChild(col3);
       row.appendChild(col4);
       rowTerminator.appendChild(row);
+      localStorage.setItem('TotalPizzas', totalPizzasMade);
     }
     return row;
   }
@@ -156,6 +157,7 @@ function calculateTableData(storeId) {
 
 var pizzaOdyssey = document.getElementById('featurenumber');
 if (pizzaOdyssey) {
+  totalPizzasMade = localStorage.getItem('TotalPizzas');
   featurenumber.textContent = totalPizzasMade + ' happy pizza odysseys this week!';
 }
 
