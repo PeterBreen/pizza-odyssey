@@ -16,12 +16,12 @@ css/style.css
 index.html  
   - updated featurenumber div to use a class for CSS
 
- js/app.js  
-   - basically deleted it AGAIN
-   - okay not really but instead of generating tables based on randomized numbers, now generates based on user provided min/max values (and then randomizes)
-   - no limit to number of stores/data provided except by your patience
-   - store names can be anywhere: Pizza3001 is going GLOBAL.
-   - function hoisting like a BOSS
+js/app.js  
+ - basically deleted it AGAIN
+ - okay not really but instead of generating tables based on randomized numbers, now generates based on user provided min/max values (and then randomizes)
+  - no limit to number of stores/data provided except by your patience
+  - store names can be anywhere: Pizza3001 is going GLOBAL.
+  - function hoisting like a BOSS
    
 
 ## Wednesday, March 23
