@@ -5,6 +5,25 @@ HTML, JS, and CSS for a pizza website from Codefellows Code 201, seattle-201d3
 
 #changelog
 
+##Thursday, March 24
+css/style.css  
+  - small modifications for new sales-data page (forms, multiple stacked tables under H3s)
+  - removed a couple unused CSS declarations
+  - fixed tragically bad css declaration for a margin with a border instead of a border with ... a border
+  - like really that was bad
+  - changed featurenumber id target to a class target for style
+
+index.html  
+  - updated featurenumber div to use a class for CSS
+
+js/app.js  
+ - basically deleted it AGAIN
+ - okay not really but instead of generating tables based on randomized numbers, now generates based on user provided min/max values (and then randomizes)
+  - no limit to number of stores/data provided except by your patience
+  - store names can be anywhere: Pizza3001 is going GLOBAL.
+  - function hoisting like a BOSS
+   
+
 ## Wednesday, March 23
 css/style.css  
   - table style added to site CSS  
