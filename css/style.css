@@ -103,7 +103,7 @@ li a:hover {
 }
 nav li:after {
   content: " ~~~ ";
-  color: #BAB8B5;
+  color: #bab8b5;
 }
 nav li:last-child:after {
   content: "";
