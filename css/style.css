@@ -1,22 +1,29 @@
 html, body {
 font-family: 'Questrial', sans-serif;
-background-color: #4F5152;
 font-size: 16px;
 }
+html {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.65+0,0+100;Neutral+Density */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+}
 body {
-max-width: 700px;
-margin: 0 auto;
-padding: 1.5em 3em;
-border-left: 1px solid #000000;
-border-right: 1px solid #000000;
-background-color: #BAB8B5;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 1.5em 3em;
+  border-left: 1px solid #000000;
+  border-right: 1px solid #000000;
+  background-color: #bab8b5;
 }
 h1 {
   color: #fcca51;
-font-size: 2.5em;
-background-color: #4f5152;
-padding: 0.5em 1em;
-border-radius: 50px;
+  font-size: 2.5em;
+  background-color: #4f5152;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+  margin-bottom: 0.5em;
 }
 h2 {
   color: #466cc2;
@@ -26,7 +33,7 @@ h2 {
 h3 {
     padding-bottom: 0.5em;
 }
-li {
+li, p {
 font-size: 1.2em;
 line-height: 1.5;
 }
@@ -44,7 +51,7 @@ th {
 font-weight: bold;
 color: #466cc2;
 }
-section.feature-image img {
+.feature-image img {
   display: block;
   margin: 1em auto;
 }
@@ -57,7 +64,7 @@ label {
   display: inline-block;
   width: 170px;
 }
-select.input {
+.input {
 padding: 5px;
 }
 fieldset {
@@ -68,7 +75,51 @@ fieldset {
   background-color: #4f5152;
   padding: 1em 2em;
   max-width: 100%;
-  font-size: 1.25em;
+  font-size: 1.33em;
   border-radius: 50px;
+}
+nav {
+  font-size: 0.9em;
+  background-color: #4f5152;
+  padding: 0;
+  border-radius: 4em;
+}
+nav ul {
+  padding: 0.1em;
+  margin: 0;
+  list-style-type: none;
+  text-align: center;
+}
+nav li {
+  display: inline;
+}
+li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+li a:hover {
+  text-decoration: underline;
+  color: #ea6249;
+}
+nav li:after {
+  content: " ~~~ ";
+  color: #bab8b5;
+}
+nav li:last-child:after {
+  content: "";
+  padding-right: 0em;
+}
+form {
+  margin-top: 1em;
+}
+.mailto {
+text-decoration: none;
+color: #e6482c;
+}
+.mailto:hover {
+  text-decoration: underline;
+}
+footer {
+  font-size: 0.8em;
 }
 /* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */

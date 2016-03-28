@@ -5,7 +5,30 @@ HTML, JS, and CSS for a pizza website from Codefellows Code 201, seattle-201d3
 
 #changelog
 
-##Thursday, March 24
+###Friday, March 25  
+css/style.css  
+  - added a significant number of bad choices
+  - updated nav, list, paragraph, styles
+  - add footer style, new background (super-hacker level future background gradient)
+
+index.html  
+  - add nav, links  
+  - add footer, text  
+  - add street addresses to store locations  
+  - adds contact us information  
+  - updates pizza odyssey number CORRECTLY.
+  - content cleanup in concert with css  
+
+sales-data.html  
+  - adds nav, links to homepage  
+  - content cleanup maybe  
+  - stuff  
+  - things  
+
+ js/app.js  
+  - *IS THAT SOME FUNCTIONING LOCALSTORAGE? OH SHIT*
+
+###Thursday, March 24
 css/style.css  
   - small modifications for new sales-data page (forms, multiple stacked tables under H3s)
   - removed a couple unused CSS declarations
@@ -22,9 +45,9 @@ js/app.js
   - no limit to number of stores/data provided except by your patience
   - store names can be anywhere: Pizza3001 is going GLOBAL.
   - function hoisting like a BOSS
-   
 
-## Wednesday, March 23
+
+### Wednesday, March 23
 css/style.css  
   - table style added to site CSS  
 
@@ -43,7 +66,7 @@ index.html
   - added feature image placeholder until the client gives me one
 
 
-## Tuesday, March 22
+### Tuesday, March 22
 add index.html (public-facing homepage)  
   - store locations  
   - store hours  

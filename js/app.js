@@ -1,5 +1,5 @@
 //GLOBAL VARIABLES
-var totalPizzasMade = 'a whole lot of', storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
+var totalPizzasMade = 0, storeId, inputPizzaObject, inputHeadingArray, minPizzasInput1, maxPizzasInput1, minDeliverInput1, maxDeliverInput1;
 // CONSTRUCTOR FUNCTIONS
 function StoreLocation(name){
   this.name = name;
@@ -75,18 +75,11 @@ if (salesDataCheck) {
       row.appendChild(col3);
       row.appendChild(col4);
       rowTerminator.appendChild(row);
+      localStorage.setItem('TotalPizzas', totalPizzasMade);
     }
     return row;
   }
 };
-
-// function generateTotalSales(inputPizzaObject, storeId2) {
-//   var branchPizzasMade = 0;
-//   for(var i = 0; i < inputPizzaObject.length; i++) {
-//     branchPizzasMade += storeId2.hourlyData[i].pizzasSold;
-//   }
-//   return branchPizzasMade;
-// };
 
 //event handler
 var createDataTable = document.getElementById('new-pizza-form');
@@ -146,21 +139,20 @@ function calculateTableData(storeId) {
   return storeId;
 };
 
-//OUTPUT TO TABLE
-// var salesDataCheck = document.getElementById('sales-data-body');
-// if (salesDataCheck) {
-//   var ballardOutput = generateTableData(ballard.hourlyData, ballard);
-//   document.getElementById('ballard').appendChild(ballardOutput);
-// };
 //create total pizzas sold, push to homepage via DOM
-
 var pizzaOdyssey = document.getElementById('featurenumber');
 if (pizzaOdyssey) {
+  totalPizzasMade = localStorage.getItem('TotalPizzas');
   featurenumber.textContent = totalPizzasMade + ' happy pizza odysseys this week!';
 }
 
 //listeners
 createDataTable.addEventListener('submit', collectDataForTable);
 
-//sample code from Drew which should help
-//var firstRow = generateHeadingRow(['Time', 'Pizzas Sold','Deliveries Made','Drivers Needed']);
+// //COMMENTED OUT ASCII ART
+//  _                 _ __ _                              ____
+// | | ___   ___ __ _| / _\ |_ ___  _ __ __ _  __ _  ___ / /\ \
+// | |/ _ \ / __/ _` | \ \| __/ _ \| '__/ _` |/ _` |/ _ \ |  | |
+// | | (_) | (_| (_| | |\ \ || (_) | | | (_| | (_| |  __/ |  | |
+// |_|\___/ \___\__,_|_\__/\__\___/|_|  \__,_|\__, |\___| |  | |
+//                                           |___/      \_\/_/
