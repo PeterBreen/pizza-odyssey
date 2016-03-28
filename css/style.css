@@ -51,7 +51,7 @@ th {
 font-weight: bold;
 color: #466cc2;
 }
-section.feature-image img {
+.feature-image img {
   display: block;
   margin: 1em auto;
 }
@@ -64,7 +64,7 @@ label {
   display: inline-block;
   width: 170px;
 }
-select.input {
+.input {
 padding: 5px;
 }
 fieldset {
