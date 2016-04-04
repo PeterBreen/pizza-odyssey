@@ -29,6 +29,10 @@ h2 {
   color: #466cc2;
   font-size: 1.75em;
   font-style: italic;
+  transition: 1s all ease;
+}
+h2:hover {
+  transform: translateX(-10px) rotate(-10deg) translateY(-30px);
 }
 h3 {
     padding-bottom: 0.5em;
@@ -122,4 +126,11 @@ color: #e6482c;
 footer {
   font-size: 0.8em;
 }
-/* colorscheme courtesy https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
+.b5img {
+transition: all 1s ease;
+}
+.b5img:hover {
+transform: rotate3d(0,1,0,360deg);
+}
+
+/* colorscheme src https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */

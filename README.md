@@ -5,7 +5,7 @@ HTML, JS, and CSS for a pizza website from Codefellows Code 201, seattle-201d3
 
 #changelog
 
-###Friday, March 25  
+###Friday, March 25, 2016
 css/style.css  
   - added a significant number of bad choices
   - updated nav, list, paragraph, styles
@@ -28,7 +28,7 @@ sales-data.html
  js/app.js  
   - *IS THAT SOME FUNCTIONING LOCALSTORAGE? OH SHIT*
 
-###Thursday, March 24
+###Thursday, March 24, 2016
 css/style.css  
   - small modifications for new sales-data page (forms, multiple stacked tables under H3s)
   - removed a couple unused CSS declarations
@@ -47,7 +47,7 @@ js/app.js
   - function hoisting like a BOSS
 
 
-### Wednesday, March 23
+### Wednesday, March 23, 2016
 css/style.css  
   - table style added to site CSS  
 
@@ -66,7 +66,7 @@ index.html
   - added feature image placeholder until the client gives me one
 
 
-### Tuesday, March 22
+### Tuesday, March 22, 2016
 add index.html (public-facing homepage)  
   - store locations  
   - store hours  
