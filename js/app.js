@@ -143,7 +143,12 @@ function calculateTableData(storeId) {
 var pizzaOdyssey = document.getElementById('featurenumber');
 if (pizzaOdyssey) {
   totalPizzasMade = localStorage.getItem('TotalPizzas');
-  featurenumber.textContent = totalPizzasMade + ' happy pizza odysseys this week!';
+  if (totalPizzasMade) {
+    featurenumber.textContent = totalPizzasMade + ' happy pizza odysseys this week!';
+  }
+  else {
+    featurenumber.textContent = '0 happy pizza odysseys this week!';
+  }
 }
 
 //listeners
