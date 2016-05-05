@@ -23,7 +23,7 @@ function HourlyData(time, minPizzas, maxPizzas, minDeliveries, maxDeliveries){
   totalPizzasMade += this.pizzasSold;
   this.deliveriesMade = getRandomIntInclusive(minDeliveries, maxDeliveries);
   driver = Math.ceil(this.deliveriesMade / 3);
-  if (driver === 0) { this.driversNeeded = 'no driver reccomended';
+  if (driver === 0) { this.driversNeeded = 'no driver recommended';
   } else { this.driversNeeded = driver;
   };
 };
