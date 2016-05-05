@@ -126,11 +126,11 @@ color: #e6482c;
 footer {
   font-size: 0.8em;
 }
-.b5img {
+/*.b5img {
 transition: all 1s ease;
 }
 .b5img:hover {
 transform: rotate3d(0,1,0,360deg);
-}
+}*/
 
 /* colorscheme src https://color.adobe.com/Future-Color-Scheme-color-theme-6862254/ */
