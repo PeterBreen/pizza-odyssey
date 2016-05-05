@@ -31,9 +31,9 @@ h2 {
   font-style: italic;
   transition: 1s all ease;
 }
-h2:hover {
+/*h2:hover {
   transform: translateX(-10px) rotate(-10deg) translateY(-30px);
-}
+}*/
 h3 {
     padding-bottom: 0.5em;
 }
